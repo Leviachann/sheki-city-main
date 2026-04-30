@@ -1,7 +1,8 @@
-export interface ILeftMenuItemProps {
-    name: string;
-    link: string;
-    icon: any;
-    submenu: any;
-}
+import { ReactElement } from 'react';
 
+export interface ISideMenuItemProps {
+    name: string | ReactElement;
+    link: string;
+    icon: ReactElement | null;
+    submenu?: ISideMenuItemProps[] | null;
+}

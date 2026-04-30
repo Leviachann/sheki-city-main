@@ -1,28 +1,60 @@
-import HeaderRightComponent from '../header-right/header-right.component';
-import simaLogo from 'assets/images/statics/sima-negative.svg';
-import {useHeaderNavbarStyles} from './header-navbar.style';
-import {NavLink} from 'react-router-dom';
-import {Routes} from 'router/routes';
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Routes } from "router/routes";
+import { useNavbarStyles } from "./header-navbar.style";
+import { useStore } from "store/store.config";
+import { toggleSideMenu } from "store/store.reducer";
+import useLocalization from "assets/lang";
+import { ShekiCityLogo } from "assets/images/icons/sheki-city-logo";
+import { LeftMenuToggle } from "assets/images/icons/left-menu-toggle";
+const NavbarComponent = () => {
+  const classes = useNavbarStyles();
+  const dispatch = useDispatch();
+  const user = useStore("user");
+  const translate = useLocalization();
 
-const HeaderNavbarComponent = () => {
-    const classes = useHeaderNavbarStyles();
+  const handleMenuToggle = () => {
+    dispatch(toggleSideMenu());
+  };
 
-    return (
-        <div className={`${classes.navbar} py-8 pl-30 pr-20`}>
-            <div className='row align-center'>
-                <div className='col-8'>
-                    <div className={classes.left}>
-                        <NavLink to={Routes.default}>
-                            <img src={simaLogo} alt='logo'/>
-                        </NavLink>
-                    </div>
-                </div>
-                <div className='col-4'>
-                    <HeaderRightComponent/>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <nav className={classes.navbar}>
+      <div className={classes.inner}>
+        <NavLink to={Routes.home} className={classes.logo}>
+          <ShekiCityLogo width={60} height={60} />
+          <span className={classes.logoLabel}>Sheki City</span>
+        </NavLink>
+
+        <ul className={classes.links}>
+          <li>
+            <NavLink to={Routes.klubHaqqinda}>
+              {translate("klub_haqqinda")}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={Routes.xeberler}>{translate("xeberler")}</NavLink>
+          </li>
+          <li>
+            <NavLink to={Routes.vakansiyalar}>
+              {translate("vakansiyalar")}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={Routes.iane}>{translate("iane")}</NavLink>
+          </li>
+          <li>
+            <NavLink to={Routes.canliOyunlar}>
+              {translate("canli_oyunlar")}
+            </NavLink>
+          </li>
+        </ul>
+
+        <button className={classes.hamburger} onClick={handleMenuToggle}>
+          <LeftMenuToggle />
+        </button>
+      </div>
+    </nav>
+  );
 };
 
-export default HeaderNavbarComponent;
+export default NavbarComponent;

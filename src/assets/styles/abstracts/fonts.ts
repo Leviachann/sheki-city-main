@@ -9,6 +9,7 @@ const fonts = {
 
     fontMain: 'Nunito Medium',
 
+    fontExtraBold: 'Nunito ExtraBold', 
 };
 
 export default fonts;

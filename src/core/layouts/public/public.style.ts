@@ -1,19 +1,22 @@
-import {createUseStyles} from 'react-jss';
-import {rem} from 'assets/styles/abstracts/functions';
-import {transition} from 'assets/styles/abstracts/mixins';
-import sizes from 'assets/styles/abstracts/sizes';
+import { createUseStyles } from 'react-jss';
+import { rem } from 'assets/styles/abstracts/functions';
+import { transition } from 'assets/styles/abstracts/mixins';
+import colors from 'assets/styles/abstracts/color';
 
 const styles = {
-    public: {},
+    public: {
+        minHeight: '100vh',
+        backgroundColor: colors.shekiPageBg,
+    },
     content: {
-        marginLeft: rem(sizes.leftMenu),
-        minHeight: 'calc(100vh - 50px) !important',
-        padding: rem(110) +' '+ rem(20) +' '+ rem(0),
+        
+        minHeight: '100vh',
+        paddingTop: rem(100),
+        paddingLeft: rem(20),
+        paddingRight: rem(20),
         transition: transition(),
     },
-    active: {marginLeft: 0,},
-
+    shifted: {},
 };
-
 
 export const usePublicLayoutStyles = createUseStyles(styles);

@@ -7,7 +7,7 @@ import LoaderComponent from './core/shared/loader/loader.component';
 import {ToastContainer} from 'react-toastify';
 import useGlobalStyles from 'assets/styles/style';
 import {ConfigProvider} from 'antd';
-import {themeConfig} from './core/configs/theme.config';
+import themeConfig from './core/configs/theme.config';
 import {useStore} from './store/store.config';
 
 const queryClient = new QueryClient();

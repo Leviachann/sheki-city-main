@@ -4,6 +4,8 @@ import nunitoSemiBold from '../../fonts/Nunito/NunitoSans-SemiBold.ttf';
 import nunitoRegular from '../../fonts/Nunito/NunitoSans-Regular.ttf';
 import nunitoThin from '../../fonts/Nunito/NunitoSans-ExtraLight.ttf';
 import nunitoXBlack from '../../fonts/Nunito/NunitoSans-ExtraBold.ttf';
+import nunitoExtraBold from '../../fonts/Nunito/NunitoSans-ExtraBold.ttf';
+
 const typography = {
   '@font-face': [
     {
@@ -29,6 +31,10 @@ const typography = {
     {
       fontFamily: 'Nunito XBlack',
       src: `url("${nunitoXBlack}")`,
+    },
+    {
+      fontFamily: 'Nunito ExtraBold',
+      src: `url("${nunitoExtraBold}")`,
     }
   ],
 };

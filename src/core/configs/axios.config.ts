@@ -1,65 +1,60 @@
-import axios, {AxiosResponse, InternalAxiosRequestConfig} from 'axios';
-import {environment} from './app.config';
-import {store} from 'store/store.config';
-import {setLoader} from 'store/store.reducer';
-import {errorToast, successToast} from '../shared/toast/toast';
-import {getToken} from '../helpers/get-token';
+import axios from 'axios';
+import store from 'store/store.config';
+import { setLoader } from 'store/store.reducer';
+import { errorToast, successToast } from 'core/shared/toast/toast';
+import { getToken } from 'core/helpers/get-token';
 
 const axiosInstance = axios.create({
-    baseURL: environment.apiMain,
-    headers: {
-        'Authorization': 'Bearer ' + getToken(),
-    },
+    baseURL: import.meta.env.VITE_APP_API_MAIN,
 });
-axiosInstance.interceptors.request.use(
-    (config: InternalAxiosRequestConfig) => {
-        store.dispatch(setLoader(true));
-        return config;
-    }, (error) => {
-        store.dispatch(setLoader(true));
-        return Promise.reject(error);
-    });
+axiosInstance.interceptors.request.use((config) => {
+    store.dispatch(setLoader(true));
+
+    const token = getToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    const { locale } = store.getState();
+    const currentLang = Object.keys(locale).length ? 'az' : 'az'; 
+    config.headers['Accept-Language'] = currentLang;
+
+    return config;
+});
 
 axiosInstance.interceptors.response.use(
-    (response: AxiosResponse) => {
-        const method = response?.config?.method?.toUpperCase() ?? '';
+    (response) => {
+        store.dispatch(setLoader(false));
 
-        if (method === 'POST') {
-            successToast('Müraciət göndərildi');
+        if (['post', 'put', 'patch', 'delete'].includes(response.config.method ?? '')) {
+            successToast('Əməliyyat uğurla tamamlandı');
         }
 
-        if (response.data) {
-            store.dispatch(setLoader(false));
-        }
         return response;
     },
     (error) => {
-        let errMessage = '';
+        store.dispatch(setLoader(false));
 
-        const {
-            response: {status,},
-        } = error;
+        const status = error.response?.status;
 
-        switch (status) {
-            case 401:
-                errMessage = 'Sessiya müddəti bitmişdir';
-                localStorage.removeItem(`${environment.applicationName}-token`);
-                break;
-
-            case 404:
-                errMessage = 'Məlumat tapılmadı';
-                break;
-
-            case 500:
-                errMessage = 'Server xətası';
-                break;
-
-            default:
-                errMessage = 'Xəta baş verdi';
+        if (status === 401) {
+            errorToast('Sessiya müddəti bitib, yenidən daxil olun');
+            localStorage.removeItem(import.meta.env.VITE_APP_TITLE);
+            window.location.href = '/';
+        } else if (status === 403) {
+            errorToast('Bu əməliyyat üçün icazəniz yoxdur');
+        } else if (status === 404) {
+            errorToast('Məlumat tapılmadı');
+        } else if (status === 422) {
+            errorToast('Daxil edilən məlumatlar düzgün deyil');
+        } else if (status === 500) {
+            errorToast('Server xətası baş verdi');
+        } else {
+            errorToast('Xəta baş verdi, yenidən cəhd edin');
         }
 
-        errorToast(errMessage);
-        store.dispatch(setLoader(false));
-    }
+        return Promise.reject(error);
+    },
 );
+
 export default axiosInstance;

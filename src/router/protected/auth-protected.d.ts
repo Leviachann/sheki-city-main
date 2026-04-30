@@ -1,7 +1,6 @@
-import {ReactElement} from 'react';
+import { ReactElement } from 'react';
 
 export interface IAuthProtectedRouteProps {
-    dep?: any;
     children: ReactElement;
-    layout: 'auth' | 'public'
+    layout?: 'public' | 'auth';
 }

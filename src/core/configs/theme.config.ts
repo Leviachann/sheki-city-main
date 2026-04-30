@@ -14,7 +14,7 @@ const themeConfig: ThemeConfig = {
         Button: {
             colorPrimary: colors.shekiGreen,
             borderRadius: 8,
-        },
+        }, 
         Input: {
             borderRadius: 8,
         },

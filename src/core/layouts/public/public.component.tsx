@@ -1,32 +1,30 @@
-import HeaderComponent from './components/header/header.component';
-import LeftMenuComponent from './components/left-menu/left-menu.component';
-import {Outlet} from 'react-router-dom';
+import NavbarComponent from './components/navbar/header-navbar.component';
+import SideMenuComponent from './components/side-menu/left-menu.component';
 import FooterComponent from './components/footer/footer.component';
-import {usePublicLayoutStyles} from './public.style';
+import { Outlet } from 'react-router-dom';
+import { usePublicLayoutStyles } from './public.style';
+import { useStore } from 'store/store.config';
 import classNames from 'classnames';
-import {useStore} from 'store/store.config';
 
 const PublicComponent = () => {
     const classes = usePublicLayoutStyles();
-    const leftMenu = useStore('leftMenu');
+    const sideMenu = useStore('sideMenu');
 
-    const publicClasses = classNames({
+    const contentClasses = classNames({
         [classes.content]: true,
-        [classes.active]: !leftMenu,
-    });
+        [classes.shifted]: sideMenu,
+    }); 
 
     return (
         <div className={classes.public}>
-            <HeaderComponent/>
-            <LeftMenuComponent isOpen={leftMenu}/>
-            <div className={publicClasses}>
-                <Outlet/>
+            <NavbarComponent />
+            <SideMenuComponent isOpen={sideMenu} />
+            <div className={contentClasses}>
+                <Outlet />
             </div>
-            <FooterComponent isOpen={leftMenu}/>
+            <FooterComponent/>
         </div>
     );
 };
 
-
 export default PublicComponent;
-

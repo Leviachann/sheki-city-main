@@ -1,18 +1,16 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
+import { IStore } from './store.d';
 import rootReducer from './store.reducer';
-import {IState} from './store';
-import {useSelector} from 'react-redux';
 
-export const store = configureStore({
+const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: false,
-        }),
+        getDefaultMiddleware({ serializableCheck: false }),
 });
 
-
-export const useStore = (key: keyof IState) => {
-    const data = useSelector((state: IState) => state[key]);
-    return data;
+export const useStore = <T extends keyof IStore>(key: T): IStore[T] => {
+    return useSelector((state: IStore) => state[key]);
 };
+
+export default store;

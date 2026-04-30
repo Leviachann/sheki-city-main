@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, FieldProps} from 'formik';
-import {IInputProps} from './input-component.d';
+import {IInputProps} from './input';
 import {Input} from 'antd';
 function InputComponent({name, label, placeholder,}: IInputProps) {
     return (

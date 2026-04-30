@@ -1,60 +1,37 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IState} from './store';
-import {az} from '../assets/lang/az';
-import {en} from '../assets/lang/en';
-import {ru} from '../assets/lang/ru';
-import {environment} from '../core/configs/app.config';
-import {ILang} from '../assets/lang/lang';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IStore, IUser } from './store.d';
+import {az} from 'assets/lang/az';
 
-const initialState: IState = {
+const initialState: IStore = {
     loader: false,
-    leftMenu: true,
+    sideMenu: false,
     languages: [
-        {
-            id: 1,
-            key: 'az',
-            value: 'Az'
-        }, {
-            id: 2,
-            key: 'en',
-            value: 'En'
-        },
-        {
-            id: 3,
-            key: 'ru',
-            value: 'Ru'
-        }
+        { id: 1, label: 'AZ', value: 'az' },
+        { id: 2, label: 'EN', value: 'en' },
+        { id: 3, label: 'RU', value: 'ru' },
     ],
     locale: az,
-    user: null
+    user: null,
 };
 
-export const rootSlice = createSlice({
+const rootSlice = createSlice({
     name: 'root',
     initialState,
     reducers: {
-        setLoader: (state: IState, action: PayloadAction<boolean>) => {
+        setLoader: (state, action: PayloadAction<boolean>) => {
             state.loader = action.payload;
         },
-        toggleLeftMenu: (state: IState) => {
-            state.leftMenu = !state.leftMenu;
+        toggleSideMenu: (state) => {
+            state.sideMenu = !state.sideMenu;
         },
-        setLocale: (state: IState, action: PayloadAction<ILang>) => {
-            const lang = {
-                az,
-                en,
-                ru
-            };
-            state.locale = lang[action.payload];
-            localStorage.setItem(`${environment.applicationName}-locale`, action.payload);
+        setLocale: (state, action: PayloadAction<Record<string, string>>) => {
+            state.locale = action.payload;
         },
-        setUser: (state: IState, action: PayloadAction<any>) => {
-            // state.user = jwtDecode(action.payload);
-            state.user = 'user';
-        }
+        setUser: (state, action: PayloadAction<IUser | null>) => {
+            state.user = action.payload;
+        },
     },
 });
 
-export const {setLoader, toggleLeftMenu, setLocale, setUser} = rootSlice.actions;
-
+export const { setLoader, toggleSideMenu, setLocale, setUser } = rootSlice.actions;
 export default rootSlice.reducer;

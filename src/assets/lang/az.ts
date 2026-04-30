@@ -2,18 +2,32 @@ export const az = {
     rights: 'Bütün hüquqlar qorunur',
     copyright: 'Copyright',
     organisation: 'Azintelecom MMC',
-
-    // left menu
-    home_title: 'Ana səhifə',
-    form_title: 'Form',
-    table_title: 'Cədvəl',
-
+    
     // errors
     input_required: 'Bu xana mütləqdir',
     input_min_length: 'Ən azı {min} simvol olmalıdır',
     email_invalid: 'Email düzgün deyil',
-    //components
+
+    // auth
     login_sign_in_button: 'Daxil ol',
     login_title: 'Daxil ol',
     login_subtitle: 'Davam etmək üçün hesabınıza daxil olun.',
+    daxil_ol: 'Daxil ol',
+    qeydiyyat: 'Qeydiyyat',
+
+    // navbar + footer
+    klub_haqqinda: 'Klub haqqında',
+    vakansiyalar: 'Vakansiyalar',
+    iane: 'İanə',
+    xeberler: 'Xəbərlər',
+    canli_oyunlar: 'Canlı oyunlar',
+
+    // side menu
+    menu: 'Menyu',
+    oyunlar: 'Oyunlar',
+    oyuncu_profili: 'Oyunçu profili',
+    mehsul_satisi: 'Məhsul satışı',
+    forum: 'Forum',
 };
+
+export default az;
