@@ -20,35 +20,31 @@ const styles = {
         justifyContent: 'space-between',
 
         '&:hover': {
-            backgroundColor: colors.paleHover,
-            boxShadow: colors.leftMenuShadow,
-            color: colors.paleBlack,
+            color: colors.shekiGreen,
             '& $itemText': {
-                color: colors.paleBlack,
+                color: colors.shekiGreen,
                 '& svg': {
-                    color: colors.paleBlack,
+                    color: colors.shekiGreen,
                 },
             },
             '& $arrow': {
                 '& svg': {
-                    color: colors.paleBlack,
+                    color: colors.shekiGreen,
                 },
             }
         },
         '&.active': {
-            backgroundColor: 'white',
-            boxShadow: colors.leftMenuShadow,
-            color: colors.paleBlack,
+            color: colors.shekiGreen,
             pointerEvents: 'none',
             '& $itemText': {
-                color: colors.paleBlack,
+                color: colors.shekiGreen,
                 '& svg': {
-                    color: colors.paleBlack,
+                    color: colors.shekiGreen,
                 },
             },
             '& $arrow': {
                 '& svg': {
-                    color: colors.paleBlack,
+                    color: colors.shekiGreen,
                 },
             }
         }
@@ -60,7 +56,7 @@ const styles = {
     itemText: {
         display: 'flex',
         alignItems: 'center',
-        color: colors.paleBlue,
+        color: colors.black,
         fontFamily: fonts.fontBold,
         fontSize: rem(13),
         letterSpacing: '1px',

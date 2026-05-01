@@ -6,8 +6,6 @@ const styles = {
   navbar: {
     backgroundColor: colors.white,
     position: "fixed",
-    top: 0,
-    left: 0,
     width: "100%",
     zIndex: 1000,
     borderBottom: `1px solid ${colors.shekiBorderOuterShadow}`,
@@ -15,7 +13,6 @@ const styles = {
   logoLabel: {
     color: colors.shekiGreenDark,
     fontFamily: "Nunito ExtraBold, sans-serif",
-    
     padding: `${rem(0)} ${rem(16)}`,
   },
   inner: {
@@ -27,29 +24,21 @@ const styles = {
   logo: {
     display: "flex",
     alignItems: "center",
-    "& img": {
-      display: "block",
-      width: rem(120),
-    },
   },
   links: {
     display: "flex",
     alignItems: "center",
     gap: rem(32),
     listStyle: "none",
-    margin: 0,
-    padding: 0,
     "& a": {
-      color: colors.shekiGreen,
+      color: colors.black,
       textDecoration: "none",
       fontSize: rem(15),
-      fontWeight: 500,
       "&:hover": {
         color: colors.shekiGreenDark,
       },
       "&.active": {
-        color: colors.shekiGreen,
-        fontWeight: 700,
+        color: colors.shekiGreenDark,
       },
     },
   },

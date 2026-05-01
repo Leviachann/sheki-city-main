@@ -8,7 +8,6 @@ import AuthProtectedComponent from './protected/auth-protected.component';
 import HomeComponent from 'pages/home/home.component';
 import OyunlarComponent from 'pages/oyunlar/oyunlar.component';
 import OyunDetailComponent from 'pages/oyunlar/oyun-detail.component';
-import OyunlarArxiviComponent from 'pages/oyunlar-arxivi/oyunlar-arxivi.component';
 import CanliOyunlarComponent from 'pages/canli-oyunlar/canli-oyunlar.component';
 import XeberlerComponent from 'pages/xeberler/xeberler.component';
 import XeberDetailComponent from 'pages/xeberler/xeber-detail.component';
@@ -48,7 +47,6 @@ const router = createBrowserRouter(
                 // 2.
                 { path: Routes.oyunlar,         element: <OyunlarComponent /> },
                 { path: Routes.oyunDetail,      element: <OyunDetailComponent /> },
-                { path: Routes.oyunlarArxivi,   element: <OyunlarArxiviComponent /> },
                 { path: Routes.canliOyunlar,    element: <CanliOyunlarComponent /> },
                 { path: Routes.xeberler,        element: <XeberlerComponent /> },
                 { path: Routes.xeberDetail,     element: <XeberDetailComponent /> },

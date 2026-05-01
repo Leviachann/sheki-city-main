@@ -7,7 +7,6 @@ export enum Routes {
     oyuncuDetail = '/oyuncu-profili/:id',
     oyunlar = '/oyunlar',
     oyunDetail = '/oyunlar/:id',
-    oyunlarArxivi = '/oyunlar-arxivi',
     canliOyunlar = '/canli-oyunlar',
     xeberler = '/xeberler',
     xeberDetail = '/xeberler/:id',
