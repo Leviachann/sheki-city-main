@@ -27,7 +27,7 @@ const LeftMenuItemComponent = ({name, link, icon, submenu}: ISideMenuItemProps) 
                             <span className={classes.arrow}>{
                                 submenuOpen ?
                                     <ArrowRight/>
-                                    :
+                                    :  
                                     <ArrowDown/>
                             }</span>
                         </div>
