@@ -1,15 +1,15 @@
 const fonts = {
-    font: 'Nunito Regular',
+    font: 'Ecluid Circular',
 
-    fontBold: 'Nunito Bold',
+    fontBold: 'Ecluid Circular Semi Bold, sans-serif',
 
-    fontMedium: 'Nunito Medium',
+    fontMedium: 'cluid Circular Medium',
 
-    fontLight: 'Nunito Light',
+    fontLight: 'Ecluid Circular Light',
 
-    fontMain: 'Nunito Medium',
+    fontMain: 'Ecluid Circular Regular',
 
-    fontExtraBold: 'Nunito ExtraBold', 
+    fontExtraBold: 'cluid Circular Bold, sans-serif', 
 };
 
 export default fonts;

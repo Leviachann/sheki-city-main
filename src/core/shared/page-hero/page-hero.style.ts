@@ -1,7 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import { rem } from 'assets/styles/abstracts/functions';
 import colors from 'assets/styles/abstracts/color';
-
 const styles = {
     heroContainer: {
         position: 'relative', 
@@ -33,7 +32,7 @@ const styles = {
         color: colors.shekiGreenDark,
         fontSize: rem(48),
         fontWeight: 700,
-        fontFamily: 'Nunito Bold, sans-serif',
+        fontFamily: 'Ecluid Circular Bold, sans-serif',
     },
     subtitle: {
         color: colors.black,

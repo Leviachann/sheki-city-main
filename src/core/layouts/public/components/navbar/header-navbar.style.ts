@@ -14,7 +14,7 @@ const styles = {
   logoLabel: {
     userSelect: "none",
     color: colors.shekiGreenDark,
-    fontFamily: "Nunito ExtraBold, sans-serif",
+    fontFamily: "Ecluid Circular Bold, sans-serif",
     padding: `${rem(0)} ${rem(16)}`,
   },
   inner: {
