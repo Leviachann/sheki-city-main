@@ -93,3 +93,104 @@ export const ArrowRight = () => {
     </svg>
   );
 };
+export const ArrowLink = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 18L18 6M18 6H9M18 6V15"
+        stroke="#04675C"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const ArrowOut = () => {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 45 44"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.5">
+        <rect
+          width="45"
+          height="44"
+          rx="22"
+          fill="url(#paint0_linear_179_50)"
+          fill-opacity="0.7"
+        />
+        <rect
+          x="0.5"
+          y="0.5"
+          width="44"
+          height="43"
+          rx="21.5"
+          stroke="url(#paint1_linear_179_50)"
+          stroke-opacity="0.7"
+        />
+      </g>
+      <rect
+        x="10.3868"
+        y="9.887"
+        width="24.2262"
+        height="24.2262"
+        stroke="url(#paint2_linear_179_50)"
+        stroke-opacity="0.7"
+        stroke-width="0.045"
+      />
+      <path
+        d="M16.4316 28.068L28.5672 15.9324M28.5672 15.9324H19.4655M28.5672 15.9324V25.0341"
+        stroke="#04675C"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_179_50"
+          x1="-117.269"
+          y1="32"
+          x2="178.609"
+          y2="22.4284"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" />
+          <stop offset="1" stop-color="#04675C" stop-opacity="0.05" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_179_50"
+          x1="-117.269"
+          y1="32"
+          x2="178.609"
+          y2="22.4284"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" />
+          <stop offset="1" stop-color="#04675C" stop-opacity="0.05" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_179_50"
+          x1="-52.8859"
+          y1="27.5163"
+          x2="106.706"
+          y2="22.4682"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" />
+          <stop offset="1" stop-color="#04675C" stop-opacity="0.05" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};

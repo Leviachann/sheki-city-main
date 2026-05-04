@@ -33,4 +33,5 @@ export const az = {
 
     // news component
     xeberler_subtitle:'Sheki City klubu haqqında bütün xəbərlər',
+    etrafli:'Ətraflı',
 };
