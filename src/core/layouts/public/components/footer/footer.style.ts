@@ -31,6 +31,7 @@ const styles = {
     fontWeight: 600,
   },
   links: {
+    userSelect: "none",
     display: "flex",
     alignItems: "center",
     gap: rem(32),

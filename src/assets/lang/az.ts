@@ -21,6 +21,8 @@ export const az = {
     iane: 'İanə',
     xeberler: 'Xəbərlər',
     canli_oyunlar: 'Canlı oyunlar',
+    klub_tarixi: 'Klub Tarixi',
+    nailiyyetler:'Naliyyətlər',
 
     // side menu
     menu: 'Menyu',

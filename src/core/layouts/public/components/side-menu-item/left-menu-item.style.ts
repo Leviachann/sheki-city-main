@@ -1,7 +1,6 @@
 import {rem} from 'assets/styles/abstracts/functions';
 import colors from 'assets/styles/abstracts/color';
 import {createUseStyles} from 'react-jss';
-import fonts from 'assets/styles/abstracts/fonts';
 import sizes from 'assets/styles/abstracts/sizes';
 import {transition} from 'assets/styles/abstracts/mixins';
 
@@ -20,101 +19,46 @@ const styles = {
         justifyContent: 'space-between',
 
         '&:hover': {
-            color: colors.shekiGreen,
-            '& $itemText': {
-                color: colors.shekiGreen,
-                '& svg': {
-                    color: colors.shekiGreen,
-                },
+            '& $itemText span': {
+                color: colors.shekiGreenDark,
+                fontFamily: 'Nunito Bold, sans-serif',
             },
-            '& $arrow': {
-                '& svg': {
-                    color: colors.shekiGreen,
-                },
-            }
         },
         '&.active': {
-            color: colors.shekiGreen,
             pointerEvents: 'none',
-            '& $itemText': {
-                color: colors.shekiGreen,
-                '& svg': {
-                    color: colors.shekiGreen,
-                },
+            '& $itemText span': {
+                fontFamily: 'Nunito Bold, sans-serif',
+                color: colors.shekiGreenDark,
+                fontWeight: 800,
             },
-            '& $arrow': {
-                '& svg': {
-                    color: colors.shekiGreen,
-                },
-            }
         }
-
-    },
-    submenu: {
-        marginLeft: rem(36),
     },
     itemText: {
         display: 'flex',
         alignItems: 'center',
         color: colors.black,
-        fontFamily: fonts.fontBold,
-        fontSize: rem(13),
+        fontSize: rem(16),
+        fontWeight: 500,
         letterSpacing: '1px',
         transition: transition(),
-        '& svg': {
-            color: colors.paleBlue,
-            marginRight: '10px',
-            verticalAlign: 'middle',
-            width: '20px',
-            height: '20px',
-            transition: transition(),
-        },
     },
-    subLink: {
-        position: 'relative',
+    iconWrapper: {
         display: 'flex',
-        justifyContent: 'space-between',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: rem(40), 
+        height: rem(40), 
+        backgroundColor: colors.shekiGreenLight, 
+        borderRadius: '50%', 
+        marginRight: rem(12),
         transition: transition(),
-        padding: `${rem(10)} ${rem(12)} ${rem(10)} ${rem(48)}`,
-        paddingLeft: rem(24),
-        fontSize: rem(13),
-        color: colors.gray,
-
-        '&::before': {
-            content: '""',
-            backgroundColor: colors.gray,
-            position: 'absolute',
-            height: '3px',
-            width: '3px',
-            top: '15px',
-            left: '13px',
-            borderRadius: '50%'
-        },
-        '&:hover': {
-            color: colors.main,
-            '&::before': {
-                backgroundColor: colors.main,
-            }
-        },
-        '&.active': {
-            pointerEvents: 'none',
-            color: colors.main,
-            '&::before': {
-                backgroundColor: colors.main,
-            }
-        },
-    },
-    arrow: {
+        
         '& svg': {
-            color: colors.paleBlue,
-            verticalAlign: 'middle',
-            width: '15px',
-            height: '15px',
-            transition: transition(),
-        }
+            width: rem(20), 
+            height: rem(20),
+        },
     },
     active: {}
-
 };
 
 export const useLeftMenuItemStyles = createUseStyles(styles);

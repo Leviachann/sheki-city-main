@@ -18,7 +18,7 @@ const colors = {
 
   //Sheki City
   shekiGreen: "#04675C",
-  shekiGreenLight: "#04675C00",
+  shekiGreenLight: "#04675b22",
   shekiGreenDark: " #024C44",
   shekiGreyText: "#182B29",
   shekiBorderOuterShadow: "#464c541a",
