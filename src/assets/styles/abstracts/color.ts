@@ -20,6 +20,7 @@ const colors = {
   shekiGreen: "#04675C",
   shekiGreenLight: "#04675b22",
   shekiGreenDark: " #024C44",
+  shekiPaleGreen: '#f0f7f7',
   shekiGreyText: "#182B29",
   shekiBorderOuterShadow: "#464c541a",
   shekiPageBg: "#FAFAFA",

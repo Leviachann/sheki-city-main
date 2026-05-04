@@ -1,5 +1,5 @@
-const XeberlerComponent = () => {
+const XeberDetailComponent = () => {
     return <div>Home</div>;
 };
 
-export default XeberlerComponent;
+export default XeberDetailComponent;

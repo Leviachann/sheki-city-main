@@ -7,7 +7,7 @@ const styles = {
         position: 'relative', 
         width: '100%',
         height: rem(200),
-        backgroundColor: '#f0f7f7', 
+        backgroundColor: colors.shekiPaleGreen, 
         borderRadius: rem(40), 
         display: 'flex',
         alignItems: 'center',

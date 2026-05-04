@@ -22,7 +22,7 @@ export const az = {
     xeberler: 'Xəbərlər',
     canli_oyunlar: 'Canlı oyunlar',
     klub_tarixi: 'Klub Tarixi',
-    nailiyyetler:'Naliyyətlər',
+    nailiyyetler: 'Nailiyyətlər',
 
     // side menu
     menu: 'Menyu',
@@ -30,6 +30,7 @@ export const az = {
     oyuncu_profili: 'Oyunçu profili',
     mehsul_satisi: 'Məhsul satışı',
     forum: 'Forum',
-};
 
-export default az;
+    // news component
+    xeberler_subtitle:'Sheki City klubu haqqında bütün xəbərlər',
+};

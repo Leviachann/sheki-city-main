@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react'; 
 import { usePageHeroStyles } from './page-hero.style';
 import { PageHeroWave } from 'assets/images/icons/pagehero-wave';
 
 interface PageHeroProps {
-  title: string;
-  subtitle?: string;
+  title: ReactNode; 
+  subtitle?: ReactNode; 
 }
 
 const PageHeroComponent = ({ title, subtitle }: PageHeroProps) => {
