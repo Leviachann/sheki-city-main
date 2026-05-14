@@ -109,6 +109,39 @@ const XeberlerComponent = () => {
       />
 
 
+<PageHeaderComponent
+    current={'Bütün xəbərlər'} 
+    //Breadcrumb
+    //     breadcrumbs={[
+    //     { label: 'Ana səhifə', path: '/' },
+    //     { label: 'Vakansiyalar', path: '/vakansiyalar' },
+    //     { label: 'Marketing məsləhətçisi' },
+    // ]}
+
+    //Search
+    search={{
+        placeholder: 'Axtar',
+        onSearch: (value) => {
+            // example
+            const searchTerm = value; 
+            return searchTerm; 
+        },
+    }}
+    // drop menu
+    filters={[{
+            label: 'Kateqoriya',
+            defaultValue: 'all', 
+            options: [
+                { label: 'Hamısı', value: 'all' },
+                { label: 'Nailiyyətlər', value: 'achievements' },
+                { label: 'Xəbərlər', value: 'news' },
+                { label: 'Yeniliklər', value: 'updates' },
+            ],
+            onChange: (val) => {
+                return val;
+            },
+    }]}
+/>
 
       <section className={classes.container}>
         <div className={classes.grid}>

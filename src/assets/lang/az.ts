@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const az = {
     rights: 'Bütün hüquqlar qorunur',
     copyright: 'Copyright',
@@ -33,54 +32,14 @@ export const az = {
     forum: 'Forum',
 
     // news component
-    xeberler_subtitle:'Sheki City klubu haqqında bütün xəbərlər',
-    etrafli:'Ətraflı',
+    xeberler_subtitle: 'Sheki City klubu haqqında bütün xəbərlər',
+    etrafli: 'Ətraflı',
 
     // iane component
     iane_subtitle: 'Şəki Siti klubuna dəstək ol',
-    geri: 'Geri',
     iane_title: 'İanə',
     iane_description: 'Futbolun İnkişaf Fondu vasitəsilə klubumuza ianə edə bilərsiniz.',
-};
-=======
-export const az = {
-    rights: 'Bütün hüquqlar qorunur',
-    copyright: 'Copyright',
-    organisation: 'Azintelecom MMC',
     
-    // errors
-    input_required: 'Bu xana mütləqdir',
-    input_min_length: 'Ən azı {min} simvol olmalıdır',
-    email_invalid: 'Email düzgün deyil',
-
-    // auth
-    login_sign_in_button: 'Daxil ol',
-    login_title: 'Daxil ol',
-    login_subtitle: 'Davam etmək üçün hesabınıza daxil olun.',
-    daxil_ol: 'Daxil ol',
-    qeydiyyat: 'Qeydiyyat',
-
-    // navbar + footer
-    klub_haqqinda: 'Klub haqqında',
-    vakansiyalar: 'Vakansiyalar',
-    iane: 'İanə',
-    xeberler: 'Xəbərlər',
-    canli_oyunlar: 'Canlı oyunlar',
-    klub_tarixi: 'Klub Tarixi',
-    nailiyyetler: 'Nailiyyətlər',
-
-    // side menu
-    menu: 'Menyu',
-    oyunlar: 'Oyunlar',
-    oyuncu_profili: 'Oyunçu profili',
-    mehsul_satisi: 'Məhsul satışı',
-    forum: 'Forum',
-
-    // news component
-    xeberler_subtitle:'Sheki City klubu haqqında bütün xəbərlər',
-    etrafli:'Ətraflı',
-
-    //section-header
+    // section-header
     geri: 'Geri'
 };
->>>>>>> ccbbe6ac987d91f555954f31d789626516de53db
