@@ -1,16 +1,16 @@
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Routes } from "router/routes";
-import { useNavbarStyles } from "./header-navbar.style";
-import { useStore } from "store/store.config";
-import { toggleSideMenu } from "store/store.reducer";
-import useLocalization from "assets/lang";
-import { ShekiCityLogo } from "assets/images/icons/sheki-city-logo";
-import { LeftMenuToggle } from "assets/images/icons/left-menu-toggle";
+import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Routes } from 'router/routes';
+import { useNavbarStyles } from './header-navbar.style';
+import { useStore } from 'store/store.config';
+import { toggleSideMenu } from 'store/store.reducer';
+import useLocalization from 'assets/lang';
+import { ShekiCityLogo } from 'assets/images/icons/sheki-city-logo';
+import { LeftMenuToggle } from 'assets/images/icons/left-menu-toggle';
 const NavbarComponent = () => {
   const classes = useNavbarStyles();
   const dispatch = useDispatch();
-  const user = useStore("user");
+  const user = useStore('user');
   const translate = useLocalization();
 
   const handleMenuToggle = () => {
@@ -28,23 +28,23 @@ const NavbarComponent = () => {
         <ul className={classes.links}>
           <li>
             <NavLink to={Routes.klubHaqqinda}>
-              {translate("klub_haqqinda")}
+              {translate('klub_haqqinda')}
             </NavLink>
           </li>
           <li>
-            <NavLink to={Routes.xeberler}>{translate("xeberler")}</NavLink>
+            <NavLink to={Routes.xeberler}>{translate('xeberler')}</NavLink>
           </li>
           <li>
             <NavLink to={Routes.vakansiyalar}>
-              {translate("vakansiyalar")}
+              {translate('vakansiyalar')}
             </NavLink>
           </li>
           <li>
-            <NavLink to={Routes.iane}>{translate("iane")}</NavLink>
+            <NavLink to={Routes.iane}>{translate('iane')}</NavLink>
           </li>
           <li>
             <NavLink to={Routes.canliOyunlar}>
-              {translate("canli_oyunlar")}
+              {translate('canli_oyunlar')}
             </NavLink>
           </li>
         </ul>

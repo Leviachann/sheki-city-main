@@ -4,7 +4,7 @@ import { ClockIcon } from 'assets/images/icons/clock';
 import { ArrowLink } from 'assets/images/icons/arrows'; 
 import useLocalization from 'assets/lang';
 
-const NewsCard = ({ image, title, description, date, slug }: NewsCardProps) => {
+const NewsCard = ({ image, title, description, date}: NewsCardProps) => {
     const classes = useNewsCardStyles();
     const translate = useLocalization();
 
