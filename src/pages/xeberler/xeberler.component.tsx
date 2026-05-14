@@ -111,6 +111,11 @@ const XeberlerComponent = () => {
 
 <PageHeaderComponent
     current={'Bütün xəbərlər'} 
+
+    //count
+    // title={'Ümumi vakansiya sayı'}
+    // count={20}
+
     //Breadcrumb
     //     breadcrumbs={[
     //     { label: 'Ana səhifə', path: '/' },
@@ -118,29 +123,56 @@ const XeberlerComponent = () => {
     //     { label: 'Marketing məsləhətçisi' },
     // ]}
 
-    //Search
-    search={{
-        placeholder: 'Axtar',
-        onSearch: (value) => {
-            // example
-            const searchTerm = value; 
-            return searchTerm; 
-        },
-    }}
-    // drop menu
-    filters={[{
-            label: 'Kateqoriya',
-            defaultValue: 'all', 
-            options: [
-                { label: 'Hamısı', value: 'all' },
-                { label: 'Nailiyyətlər', value: 'achievements' },
-                { label: 'Xəbərlər', value: 'news' },
-                { label: 'Yeniliklər', value: 'updates' },
-            ],
-            onChange: (val) => {
-                return val;
-            },
-    }]}
+    //Search & dropmenu
+    // search={{
+    //     placeholder: 'Axtar',
+    //     onSearch: (value) => {
+    //         // example
+    //         const searchTerm = value; 
+    //         return searchTerm; 
+    //     },
+    // }}
+    // filters={[{
+    //         label: 'Kateqoriya',
+    //         defaultValue: 'all', 
+    //         options: [
+    //             { label: 'Hamısı', value: 'all' },
+    //             { label: 'Nailiyyətlər', value: 'achievements' },
+    //             { label: 'Xəbərlər', value: 'news' },
+    //             { label: 'Yeniliklər', value: 'updates' },
+    //         ],
+    //         onChange: (val) => {
+    //             return val;
+    //         },
+    // }]}
+
+    //double drop menu
+    // filters={[{
+    //         label: 'Kateqoriya',
+    //         defaultValue: 'all', 
+    //         options: [
+    //             { label: 'Hamısı', value: 'all' },
+    //             { label: 'Nailiyyətlər', value: 'achievements' },
+    //             { label: 'Xəbərlər', value: 'news' },
+    //             { label: 'Yeniliklər', value: 'updates' },
+    //         ],
+    //         onChange: (val) => {
+    //             return val;
+    //         },
+    // },
+    // {
+    //         label: 'Kateqoriya',
+    //         defaultValue: 'all', 
+    //         options: [
+    //             { label: 'Hamısı', value: 'all' },
+    //             { label: 'Nailiyyətlər', value: 'achievements' },
+    //             { label: 'Xəbərlər', value: 'news' },
+    //             { label: 'Yeniliklər', value: 'updates' },
+    //         ],
+    //         onChange: (val) => {
+    //             return val;
+    //         },
+    // },]}
 />
 
       <section className={classes.container}>
