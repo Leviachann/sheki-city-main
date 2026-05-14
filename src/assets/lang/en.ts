@@ -30,4 +30,18 @@ export const en = {
     oyuncu_profili: 'Player profile',
     mehsul_satisi: 'Merchandise',
     forum: 'Forum',
+
+    // forum component
+    forum_subtitle: 'Connect with fans',
+    kateqoriya_elave_et: 'Add category',
+    klub_xeberleri: 'Club news',
+    klub_xeberleri_desc: 'Official news, press releases',
+    matc_muzakireleri: 'Match discussions',
+    matc_muzakireleri_desc: 'Separate topic for each game',
+    transfer_movzulari: 'Transfer topics',
+    transfer_movzulari_desc: 'Transfer rumors, official transfers',
+    media_merkezi: 'Media center',
+    media_merkezi_desc: 'Game videos, fan photos',
+    azarkes_klubu: 'Fan club',
+    azarkes_klubu_desc: 'Meetups, local fan groups',
 };

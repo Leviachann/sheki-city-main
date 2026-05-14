@@ -41,5 +41,19 @@ export const az = {
     iane_description: 'Futbolun İnkişaf Fondu vasitəsilə klubumuza ianə edə bilərsiniz.',
     
     // section-header
-    geri: 'Geri'
+    geri: 'Geri',
+
+    // forum component
+    forum_subtitle: 'Azarkeşlər ilə əlaqə',
+    kateqoriya_elave_et: 'Kateqoriya əlavə et',
+    klub_xeberleri: 'Klub xəbərləri',
+    klub_xeberleri_desc: 'Rəsmi xəbərlər, press-relizlər',
+    matc_muzakireleri: 'Matç müzakirələri',
+    matc_muzakireleri_desc: 'Hər oyun üçün ayrıca başlıq',
+    transfer_movzulari: 'Transfer mövzuları',
+    transfer_movzulari_desc: 'Transfer şayiələri, rəsmi transferlər',
+    media_merkezi: 'Media mərkəzi',
+    media_merkezi_desc: 'Oyun videoları, azarkeş fotoları',
+    azarkes_klubu: 'Azarkeş klubu',
+    azarkes_klubu_desc: 'Tanışlıq, yerli fan qrupları',
 };
