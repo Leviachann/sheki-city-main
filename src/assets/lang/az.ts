@@ -34,4 +34,10 @@ export const az = {
     // news component
     xeberler_subtitle:'Sheki City klubu haqqında bütün xəbərlər',
     etrafli:'Ətraflı',
-};
+
+    // iane component
+    iane_subtitle: 'Şəki Siti klubuna dəstək ol',
+    geri: 'Geri',
+    iane_title: 'İanə',
+    iane_description: 'Futbolun İnkişaf Fondu vasitəsilə klubumuza ianə edə bilərsiniz.',
+};
