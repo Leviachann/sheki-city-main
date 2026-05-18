@@ -44,4 +44,11 @@ export const en = {
     media_merkezi_desc: 'Game videos, fan photos',
     azarkes_klubu: 'Fan club',
     azarkes_klubu_desc: 'Meetups, local fan groups',
+
+    // mehsullar
+    mehsullar: 'Products',
+    mehsullar_subtitle: 'Sale of all merchandise of Sheki City club',
+    butun_mehsullar: 'All products',
+    indi_alin: 'Buy now',
+    axtar: 'Search',
 };

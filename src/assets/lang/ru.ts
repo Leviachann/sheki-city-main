@@ -44,4 +44,11 @@ export const ru = {
     media_merkezi_desc: 'Видео игр, фото фанатов',
     azarkes_klubu: 'Фан-клуб',
     azarkes_klubu_desc: 'Встречи, местные группы фанатов',
+
+    // mehsullar
+    mehsullar: 'Продукты',
+    mehsullar_subtitle: 'Продажа всех товаров клуба Sheki City',
+    butun_mehsullar: 'Все продукты',
+    indi_alin: 'Купить сейчас',
+    axtar: 'Поиск',
 };

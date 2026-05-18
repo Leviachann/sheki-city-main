@@ -56,4 +56,11 @@ export const az = {
     media_merkezi_desc: 'Oyun videoları, azarkeş fotoları',
     azarkes_klubu: 'Azarkeş klubu',
     azarkes_klubu_desc: 'Tanışlıq, yerli fan qrupları',
+
+    // mehsullar
+    mehsullar: 'Məhsullar',
+    mehsullar_subtitle: 'Sheki City klubunun bütün məhsullarının satışı',
+    butun_mehsullar: 'Bütün məhsullar',
+    indi_alin: 'İndi alın',
+    axtar: 'Axtar',
 };
