@@ -1,8 +1,10 @@
+import { useMemo, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Select, Input, Breadcrumb } from 'antd';
 import { IPageHeaderProps } from './section-header';
 import { usePageHeaderStyles } from './section-header.style';
 import { ArrowLeft } from 'assets/images/icons/arrows';
+import { debounce } from 'core/helpers/debounce';
 
 const PageHeaderComponent = ({
     title,
@@ -15,6 +17,14 @@ const PageHeaderComponent = ({
 }: IPageHeaderProps) => {
     const classes = usePageHeaderStyles();
     const navigate = useNavigate();
+
+    const handleChange = useMemo(() => {
+        const onChange = search?.onChange;
+        if (!onChange) return undefined;
+        return debounce((e: ChangeEvent<HTMLInputElement>) => {
+            onChange(e.target.value);
+        }, 300);
+    }, [search?.onChange]);
 
     const handleBack = () => {
         if (onBack) {
@@ -59,6 +69,7 @@ const PageHeaderComponent = ({
                         <Input.Search
                             placeholder={search.placeholder}
                             onSearch={search.onSearch}
+                            onChange={handleChange}
                         />
                     )}
                     {filters &&
