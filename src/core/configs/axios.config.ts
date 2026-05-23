@@ -4,7 +4,7 @@ import { setLoader } from 'store/store.reducer';
 import { errorToast, successToast } from 'core/shared/toast/toast';
 import { getToken } from 'core/helpers/get-token';
 
-const API_BASE_URL = import.meta.env.VITE_APP_API_MAIN || 'https://dev-football-club-api.azintelecom.az';
+const API_BASE_URL = import.meta.env.VITE_APP_API_MAIN;
 
 const axiosInstance = axios.create({
     baseURL: `${API_BASE_URL}/api/v1`,

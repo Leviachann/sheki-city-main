@@ -6,7 +6,8 @@ export const getProducts = async (
     page = 1,
     pageSize = 6,
     search?: string,
-    categoryId?: number
+    categoryId?: number,
+    lang = 'az'
 ): Promise<IProductsResponse> => {
     try {
         const response = await axiosInstance.get<IProductsResponse>(API.mehsullar, {
@@ -15,7 +16,11 @@ export const getProducts = async (
                 pageSize,
                 ...(search && { search }),
                 ...(categoryId && { categoryId }),
-            }
+            },
+            headers: {
+                'X-Lang-Code': lang,
+            },
+            withCredentials: false
         });
         return response.data;
     } catch (error) {
