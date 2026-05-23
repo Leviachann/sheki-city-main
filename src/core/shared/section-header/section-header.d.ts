@@ -8,6 +8,7 @@ export interface IPageHeaderProps {
     search?: {
         placeholder: string;
         onSearch: (value: string) => void;
+        onChange?: (value: string) => void;
     };
     filters?: Array<{
         label: string;

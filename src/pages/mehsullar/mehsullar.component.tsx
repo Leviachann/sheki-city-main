@@ -15,7 +15,7 @@ const MehsullarComponent = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [selectedCategory, setSelectedCategory] = useState<number | undefined>(undefined);
 
-    const pageSize = 6; // Standard 2x3 grid as shown in the design
+    const pageSize = 6; 
 
     const { data, isLoading, isError } = useGetProducts(
         currentPage,
@@ -25,9 +25,17 @@ const MehsullarComponent = () => {
     );
 
     const handleSearch = (value: string) => {
+        console.log('[Mehsullar] handleSearch called with:', value);
         setSearchTerm(value);
         setCurrentPage(1); // Reset to page 1 on new search
     };
+
+    // Debug: log searchTerm changes
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // (This small effect helps confirm runtime behavior during verification.)
+    // Note: remove these logs after debugging.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // Import of useEffect is not added since this is temporary; using console logs above should suffice.
 
     const handleCategoryChange = (value: string | number) => {
         if (value === 'all') {
@@ -40,12 +48,19 @@ const MehsullarComponent = () => {
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        // Scroll smoothly to top of grid when changing pages
         window.scrollTo({ top: 350, behavior: 'smooth' });
     };
 
     const productsList = data?.items || [];
-    const totalCount = data?.totalCount || 0;
+    // If user is typing a search term, filter client-side by product `name` (matches `ProductCard` h3)
+    const displayedProducts = searchTerm
+        ? productsList.filter((p) =>
+              p.name?.toLowerCase().includes(searchTerm.trim().toLowerCase())
+          )
+        : productsList;
+
+    // Use server totalCount when not searching; during client-side search use filtered length
+    const totalCount = searchTerm ? displayedProducts.length : data?.totalCount || 0;
 
     return (
         <div className={classes.wrapper}>
@@ -59,6 +74,7 @@ const MehsullarComponent = () => {
                 search={{
                     placeholder: translate('axtar') as string,
                     onSearch: handleSearch,
+                    onChange: handleSearch,
                 }}
                 filters={[
                     {
@@ -89,14 +105,14 @@ const MehsullarComponent = () => {
                             No products found.
                         </p>
                     ) : (
-                        productsList.map((item) => (
+                        displayedProducts.map((item) => (
                             <ProductCard key={item.id} {...item} />
                         ))
                     )}
                 </div>
 
                 {/* Pagination Component styled with absolute darkness theme */}
-                {totalCount > pageSize && (
+                {!searchTerm && totalCount > pageSize && (
                     <div className={classes.paginationContainer}>
                         <Pagination
                             current={currentPage}
