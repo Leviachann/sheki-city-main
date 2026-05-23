@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const ArrowDown = () => {
   return (
     <svg
@@ -7,10 +9,10 @@ export const ArrowDown = () => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0_179_219)'>
+      <g clipPath='url(#clip0_179_219)'>
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M0.263131 4.37931C-0.0876438 4.74373 -0.0876438 5.33371 0.263131 5.6972L7.7 13.4041C8.40244 14.132 9.542 14.132 10.2444 13.4041L17.7367 5.64128C18.0838 5.28059 18.0886 4.69806 17.7459 4.33271C17.396 3.9599 16.8193 3.95525 16.464 4.32247L9.60854 11.4273C9.25687 11.7917 8.68755 11.7917 8.33588 11.4273L1.53491 4.37931C1.18413 4.01488 0.613898 4.01488 0.263131 4.37931Z'
           fill='#04675C'
         />
@@ -28,6 +30,7 @@ export const ArrowDown = () => {
     </svg>
   );
 };
+
 export const ArrowLeft = () => {
   return (
     <svg
@@ -75,6 +78,7 @@ export const ArrowLeft = () => {
     </svg>
   );
 };
+
 export const ArrowRight = () => {
   return (
     <svg
@@ -93,6 +97,7 @@ export const ArrowRight = () => {
     </svg>
   );
 };
+
 export const ArrowLink = () => {
   return (
     <svg
@@ -105,9 +110,9 @@ export const ArrowLink = () => {
       <path
         d='M6 18L18 6M18 6H9M18 6V15'
         stroke='#04675C'
-        stroke-width='2.25'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2.25'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );
@@ -128,7 +133,7 @@ export const ArrowOut = () => {
           height='44'
           rx='22'
           fill='url(#paint0_linear_179_50)'
-          fill-opacity='0.7'
+          fillOpacity='0.7'
         />
         <rect
           x='0.5'
@@ -137,7 +142,7 @@ export const ArrowOut = () => {
           height='43'
           rx='21.5'
           stroke='url(#paint1_linear_179_50)'
-          stroke-opacity='0.7'
+          strokeOpacity='0.7'
         />
       </g>
       <rect
@@ -146,15 +151,15 @@ export const ArrowOut = () => {
         width='24.2262'
         height='24.2262'
         stroke='url(#paint2_linear_179_50)'
-        stroke-opacity='0.7'
-        stroke-width='0.045'
+        strokeOpacity='0.7'
+        strokeWidth='0.045'
       />
       <path
         d='M16.4316 28.068L28.5672 15.9324M28.5672 15.9324H19.4655M28.5672 15.9324V25.0341'
         stroke='#04675C'
-        stroke-width='2.25'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2.25'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <defs>
         <linearGradient
@@ -165,8 +170,8 @@ export const ArrowOut = () => {
           y2='22.4284'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='white' />
-          <stop offset='1' stop-color='#04675C' stop-opacity='0.05' />
+          <stop stopColor='white' />
+          <stop offset='1' stopColor='#04675C' stopOpacity='0.05' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_179_50'
@@ -176,8 +181,8 @@ export const ArrowOut = () => {
           y2='22.4284'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='white' />
-          <stop offset='1' stop-color='#04675C' stop-opacity='0.05' />
+          <stop stopColor='white' />
+          <stop offset='1' stopColor='#04675C' stopOpacity='0.05' />
         </linearGradient>
         <linearGradient
           id='paint2_linear_179_50'
@@ -187,8 +192,8 @@ export const ArrowOut = () => {
           y2='22.4682'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='white' />
-          <stop offset='1' stop-color='#04675C' stop-opacity='0.05' />
+          <stop stopColor='white' />
+          <stop offset='1' stopColor='#04675C' stopOpacity='0.05' />
         </linearGradient>
       </defs>
     </svg>

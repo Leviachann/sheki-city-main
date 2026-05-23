@@ -13,6 +13,18 @@ const styles = {
     justifyContent: 'center',
     width: '100%',
   },
+  statusMessage: {
+    color: '#ffffff',
+    textAlign: 'center',
+    gridColumn: '1 / -1',
+    fontSize: rem(16),
+  },
+  paginationContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: rem(40),
+    width: '100%',
+  },
 };
 
 export const useXeberlerStyles = createUseStyles(styles);

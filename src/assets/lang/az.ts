@@ -32,6 +32,9 @@ export const az = {
     forum: 'Forum',
 
     // news component
+    butun_xeberler:'Bütün xəbərlər',
+    kateqoriya:'Kateqoriya',
+    hamisi:'Hamısı',
     xeberler_subtitle: 'Sheki City klubu haqqında bütün xəbərlər',
     etrafli: 'Ətraflı',
 

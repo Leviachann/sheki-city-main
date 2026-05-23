@@ -1,7 +1,4 @@
-interface IExitIconProps {
-  width?: number;
-  height?: number;
-}
+import React from 'react';
 
 interface IExitIconProps {
   width?: number;
