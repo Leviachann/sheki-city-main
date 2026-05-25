@@ -3,10 +3,17 @@ import { NewsCardProps } from './news-card';
 import { ClockIcon } from 'assets/images/icons/clock';
 import { ArrowLink } from 'assets/images/icons/arrows'; 
 import useLocalization from 'assets/lang';
+import { Routes, goTo } from 'router/routes';
+import { useNavigate } from 'react-router-dom';
 
-const NewsCard = ({ image, title, description, date}: NewsCardProps) => {
+const NewsCard = ({ image, title, description, date, id }: NewsCardProps) => {
     const classes = useNewsCardStyles();
+    const navigate = useNavigate();
     const translate = useLocalization();
+
+    const handleNavigate = () => {
+        navigate(goTo(Routes.xeberDetail, id));
+    };
 
     return (
         <div className={classes.card}>
@@ -26,7 +33,7 @@ const NewsCard = ({ image, title, description, date}: NewsCardProps) => {
                     <span>{date}</span>
                 </div>
 
-                <div className={classes.moreLink}>
+                <div className={classes.moreLink} onClick={handleNavigate}>
                     <span>{translate('etrafli')}</span>
                     <ArrowLink/>
                 </div>

@@ -31,7 +31,9 @@ export const az = {
     mehsul_satisi: 'Məhsul satışı',
     forum: 'Forum',
 
-    // news component
+    // news componentana_sehife: 
+    diger_xeberler: 'Digər xəbərlər',
+    ana_sehife:'Ana Səhifə',
     butun_xeberler:'Bütün xəbərlər',
     kateqoriya:'Kateqoriya',
     hamisi:'Hamısı',

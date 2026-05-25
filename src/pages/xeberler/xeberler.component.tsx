@@ -7,6 +7,7 @@ import NewsCard from 'core/shared/news-card/news-card.component';
 import { useXeberlerStyles } from './xeberler.style';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
 import { useGetXeberler } from './actions/xeberler.query';
+import { useGetNewsCategories } from './actions/xeber-categories.query'; 
 
 const XeberlerComponent = () => {
     const translate = useLocalization();
@@ -18,15 +19,17 @@ const XeberlerComponent = () => {
 
     const pageSize = 6;
 
-    const { data, isLoading, isError } = useGetXeberler(
+    const { data } = useGetXeberler(
         currentPage,
         pageSize,
         selectedCategory
     );
 
+    const { data: serverCategories = [] } = useGetNewsCategories('az');
+
     const handleSearch = (value: string) => {
         setSearchTerm(value.trim().toLowerCase());
-        setCurrentPage(1); // Reset to page 1 on search filter
+        setCurrentPage(1);
     };
 
     const handleCategoryChange = (value: string | number) => {
@@ -54,6 +57,14 @@ const XeberlerComponent = () => {
         );
     });
 
+    const dynamicCategoryOptions = [
+        { label: translate('hamisi') as string || 'Hamısı', value: 'all' },
+        ...serverCategories.map((cat) => ({
+            label: cat.name,
+            value: cat.id
+        }))
+    ];
+
     return (
         <>
             <PageHeroComponent
@@ -62,21 +73,17 @@ const XeberlerComponent = () => {
             />
 
             <PageHeaderComponent
-                current={translate('butun_xeberler') as string || 'Bütün xəbərlər'}
+                current={translate('butun_xeberler') as string}
                 search={{
-                    placeholder: translate('axtar') as string || 'Axtar',
+                    placeholder: translate('axtar') as string,
                     onSearch: handleSearch,
+                    onChange: handleSearch,
                 }}
                 filters={[
                     {
-                        label: translate('kateqoriya') as string || 'Kateqoriya',
+                        label: translate('kateqoriya') as string,
                         defaultValue: 'all',
-                        options: [
-                            { label: translate('hamisi') as string || 'Hamısı', value: 'all' },
-                            { label: 'Futbol Xəbərləri', value: 1 },
-                            { label: 'Nailiyyətlər', value: 2 },
-                            { label: 'Yeniliklər', value: 3 },
-                        ],
+                        options: dynamicCategoryOptions,
                         onChange: handleCategoryChange,
                     },
                 ]}
@@ -84,35 +91,21 @@ const XeberlerComponent = () => {
 
             <section className={classes.container}>
                 <div className={classes.grid}>
-                    {isLoading ? (
-                        <p className={classes.statusMessage}>
-                            Loading news...
-                        </p>
-                    ) : isError ? (
-                        <p className={classes.statusMessage}>
-                            Failed to load news articles.
-                        </p>
-                    ) : filteredNewsList.length === 0 ? (
-                        <p className={classes.statusMessage}>
-                            No news found.
-                        </p>
-                    ) : (
-                        filteredNewsList.map((item) => {
-                            const cardProps = {
-                                id: item.id,
-                                title: item.title,
-                                description: item.excerpt,
-                                slug: item.slug,
-                                category: item.category?.name || 'News',
-                                date: item.publishedAt 
-                                    ? new Date(item.publishedAt).toLocaleDateString('az-AZ') 
-                                    : '',
-                                image: newsImg
-                            };
+                    {filteredNewsList.map((item) => {
+                        const cardProps = {
+                            id: item.id,
+                            title: item.title,
+                            description: item.excerpt,
+                            slug: item.slug,
+                            category: item.category?.name || 'News',
+                            date: item.publishedAt 
+                                ? new Date(item.publishedAt).toLocaleDateString('az-AZ') 
+                                : '',
+                            image: newsImg
+                        };
 
-                            return <NewsCard key={item.id} {...cardProps} />;
-                        })
-                    )}
+                        return <NewsCard key={item.id} {...cardProps} />;
+                    })}
                 </div>
 
                 {totalCount > pageSize && (

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import store from 'store/store.config';
 import { setLoader } from 'store/store.reducer';
 import { errorToast, successToast } from 'core/shared/toast/toast';
@@ -11,10 +11,15 @@ const axiosInstance = axios.create({
     withCredentials: true, 
 });
 
-let isRefreshing = false;
-let failedQueue: any[] = [];
+interface QueueItem {
+    resolve: (value: string | null) => void;
+    reject: (reason: AxiosError) => void;
+}
 
-const processQueue = (error: any, token: string | null = null) => {
+let isRefreshing = false;
+let failedQueue: QueueItem[] = [];
+
+const processQueue = (error: AxiosError | null, token: string | null = null) => {
     failedQueue.forEach((prom) => {
         if (error) {
             prom.reject(error);
@@ -50,9 +55,9 @@ axiosInstance.interceptors.response.use(
 
         return response;
     },
-    async (error) => {
+    async (error: AxiosError) => {
         store.dispatch(setLoader(false));
-        const originalRequest = error.config;
+        const originalRequest = error.config as typeof error.config & { _retry?: boolean };
         const status = error.response?.status;
 
         if (status === 401 && !originalRequest._retry) {
@@ -61,7 +66,9 @@ axiosInstance.interceptors.response.use(
                     failedQueue.push({ resolve, reject });
                 })
                 .then((token) => {
-                    originalRequest.headers.Authorization = `Bearer ${token}`;
+                    if (originalRequest.headers) {
+                        originalRequest.headers.Authorization = `Bearer ${token}`;
+                    }
                     return axiosInstance(originalRequest);
                 })
                 .catch((err) => Promise.reject(err));
@@ -81,14 +88,16 @@ axiosInstance.interceptors.response.use(
                 localStorage.setItem('accessToken', accessToken); 
 
                 axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-                originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+                if (originalRequest.headers) {
+                    originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+                }
 
                 processQueue(null, accessToken);
                 isRefreshing = false;
 
                 return axiosInstance(originalRequest);
             } catch (refreshError) {
-                processQueue(refreshError, null);
+                processQueue(refreshError as AxiosError, null);
                 isRefreshing = false;
 
                 errorToast('Sessiya müddəti bitib, yenidən daxil olun');

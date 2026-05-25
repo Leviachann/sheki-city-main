@@ -9,6 +9,7 @@ export const API = {
     oyuncuDetail: 'players/:id',
     xeberler: 'NewsArticles',     
     xeberDetail: 'NewsArticles/:id', 
+    xeberCategories: 'NewsCategories',
     mehsullar: 'products',
     mehsulDetail: 'products/:id',
     vakansiyalar: 'vacancies',
