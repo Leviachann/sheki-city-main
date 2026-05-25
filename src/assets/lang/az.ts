@@ -68,4 +68,7 @@ export const az = {
     butun_mehsullar: 'Bütün məhsullar',
     indi_alin: 'İndi alın',
     axtar: 'Axtar',
+
+    //live-games
+    canli_yayin:'Canlı Yayın',
 };
