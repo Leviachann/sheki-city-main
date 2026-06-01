@@ -69,9 +69,6 @@ const ForumComponent = () => {
                         {translate('geri')}
                     </button>
                     
-                    <button className={classes.addButton}>
-                        {translate('kateqoriya_elave_et')}
-                    </button>
                 </div>
                 
                 <div className={classes.list}>

@@ -1,3 +1,4 @@
+
 export const az = {
     rights: 'Bütün hüquqlar qorunur',
     copyright: 'Copyright',
@@ -71,4 +72,21 @@ export const az = {
 
     //live-games
     canli_yayin:'Canlı Yayın',
+
+    //matches
+    oyunlar_desc: 'Sheki City klubunun mövsüm ərzində olan oyunları',
+
+    //achievements
+    nailiyyetler_title :'Əldə edilmiş naliyyətlər',
+    nailiyyetler_desc :'Sheki City klubunun əldə etdiyi naliyyətlər',
+    hech_bir_nailiyyet_yoxdur:'Əldə edilmiş heç bir nailiyyət yoxdur',
+
+    //klub-tarixi
+    klub_tarixi_desc: 'Sheki City klubunun tarixi',
+    klub_tarixi_title: '8 İllik Tarix',
+    klub_tarixi_date_subtitle: '18 Avqust, 2018...',
+    klub_tarixi_p1: 'Şəki Professional Futbol Klubunun hekayəsi klubun direktoru Elgün Hüseynovun böyük əzmi və təşəbbüsü ilə başlamışdır. Tarixi Şəki şəhərində əsası qoyulan klub ilk addımlarını "Marxal Futbol Klubu" adı altında atmışdır. Yarandığı ilk dövrlərdə klub yalnız qadın futbol komandası kimi fəaliyyət göstərərək bölgənin idman həyatında unikal bir təmsilçiliyə imza atmışdır.',
+    klub_tarixi_p2: 'Zaman keçdikcə layihə böyüyərək rəqabətədavamlı kişi komandasına çevrildi. 13 Noyabr 2022-ci il tarixində klub Azərbaycan Regional Liqasında rəsmi oyunlarına start verdi. İlk rəsmi matçında "Qala" FK üzərində səfər qələbəsi qazanan komanda, mövsüm boyu böyük üstünlük nümayiş etdirdi. Bu möhtəşəm yürüş zamanı komanda keçirdiyi 14 oyundan 11-də qələbə qazanaraq və rəqib qapılarına 49 qol vuraraq liqa rekordlarını alt-üst etdi. Qobustan FK və Xəzər Lənkəran kimi güclü rəqiblərlə gərgin pley-off mübarizəsindən sonra komanda Azərbaycan İkinci Liqasına vəsiqə qazanmağı bacardı.',
+    klub_tarixi_p3: 'Şəhərə və azarkeşlərinə olan dərin bağlılığını əks etdirmək məqsədilə, klub 2025-ci ilin sentyabr ayında rəsmən "Şəki" PFK adlandırıldı və bölgəni peşəkar arenada təmsil etmək üçün yeni loqo və brend kimliyini təqdim etdi. Ev oyunlarını 3500 azarkeş tutumuna malik Şəki Şəhər Stadionunda baş məşqçi Firuddin Mövsümovun rəhbərliyi altında keçirən klub, bu gün yerli kimliyin, əzmkarlığın və futbol sevgisinin simvoludur. Regional bir təşəbbüsdən peşəkar liqaya uzanan bu yol, hər oyunda daha da böyüyür.',
+    klub_tarixi_footer: 'Daha neçə belə uğurlu illərə, Şəki PFK!'
 };
