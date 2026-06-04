@@ -93,5 +93,6 @@ export const az = {
     klub_tarixi_footer: 'Daha neçə belə uğurlu illərə, Şəki PFK!',
 
     //klub-haqqinda
+    oyuncu_profili_desc:'Sheki City klubunun bütün oyunçuları',
     klub_haqqinda_short_desc: 'Şəki PFK-nın hekayəsi Azərbaycan futbolunda tamamilə unikal bir yoldur və məhz buna görə də bu klub bölgənin idman ruhunu peşəkar səviyyədə təmsil edir. Bu, böyük əzmkarlıq, tarixi yeniliklər və komandanın regional liqalardan peşəkar pillələrə sürətli yüksəlişini əks etdirən möhtəşəm bir mübarizə nağılıdır. Klubumuzun fəaliyyəti hücummeylli, azarkeşləri heyran edən və Şəki futboluna yaraşan dramatik qələbələrlə zəngin ənənələrə əsaslanır. "Klub haqqında" bölməmizdə sizi 2018-ci ildəki ilk addımlarımızdan başlayaraq, liqa rekordlarını alt-üst etdiyimiz möhtəşəm oyunlara, keçdiyimiz çətin sınaqlara və bu şanlı kluba şərəflə xidmət edən fədakar futbolçu, məşqçi və rəhbər heyətimizin unudulmaz hekayələrinə doğru səyahətə çıxarırıq.',
 };
