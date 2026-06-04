@@ -12,3 +12,16 @@ export const useGetMatches = (pageNumber = 1, pageSize = 20, lang = 'az') => {
         }
     );
 };
+
+export const useGetMatchById = (id: number | string, lang = 'az') => {
+  return useQuery<IMatchGrouped | undefined, Error>(
+    ['match', id, lang],
+    async () => {
+      const allMatches = await getMatches(1, 100, lang);
+      return allMatches.find((match) => match.id === Number(id));
+    },
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+};
