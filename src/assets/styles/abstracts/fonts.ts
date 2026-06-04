@@ -9,7 +9,7 @@ const fonts = {
 
     fontMain: 'Ecluid Circular Regular',
 
-    fontExtraBold: 'cluid Circular Bold, sans-serif', 
+    fontExtraBold: 'Ecluid Circular Bold, sans-serif', 
 };
 
 export default fonts;

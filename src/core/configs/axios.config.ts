@@ -5,6 +5,7 @@ import { errorToast, successToast } from 'core/shared/toast/toast';
 import { getToken } from 'core/helpers/get-token';
 
 const API_BASE_URL = import.meta.env.VITE_APP_API_MAIN;
+export const S3_BASE_URL = import.meta.env.VITE_APP_S3_BASE;
 
 const axiosInstance = axios.create({
     baseURL: `${API_BASE_URL}/api/v1`,

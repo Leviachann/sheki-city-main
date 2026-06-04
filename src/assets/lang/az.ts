@@ -75,6 +75,8 @@ export const az = {
 
     //matches
     oyunlar_desc: 'Sheki City klubunun mövsüm ərzində olan oyunları',
+    reqib_komanda:'Rəqib komanda',
+    oyunlar_neticeleri:'Sheki City təqdimatları və nəticələr',
 
     //achievements
     nailiyyetler_title :'Əldə edilmiş naliyyətlər',
