@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Routes } from 'router/routes';
 import { useNavbarStyles } from './header-navbar.style';
-import { useStore } from 'store/store.config';
 import { toggleSideMenu } from 'store/store.reducer';
 import useLocalization from 'assets/lang';
 import { ShekiCityLogo } from 'assets/images/icons/sheki-city-logo';
@@ -10,7 +9,6 @@ import { LeftMenuToggle } from 'assets/images/icons/left-menu-toggle';
 const NavbarComponent = () => {
   const classes = useNavbarStyles();
   const dispatch = useDispatch();
-  const user = useStore('user');
   const translate = useLocalization();
 
   const handleMenuToggle = () => {

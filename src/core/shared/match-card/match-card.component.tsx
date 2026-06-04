@@ -25,14 +25,15 @@ const MatchCard = ({
 
   const isUpcoming = homeScore === 0 && awayScore === 0;
 
-  const formattedTime = kickOffTime && kickOffTime.includes(':') 
-    ? kickOffTime.split(':').slice(0, 2).join(':') 
-    : kickOffTime;
+  const formattedTime =
+    kickOffTime && kickOffTime.includes(':')
+      ? kickOffTime.split(':').slice(0, 2).join(':')
+      : kickOffTime;
 
   return (
     <div className={classes.card}>
       <div className={classes.leagueWrapper}>
-        <img src={liqaLogo} alt="League Logo" className={classes.image} />
+        <img src={liqaLogo} alt='League Logo' className={classes.image} />
       </div>
 
       <div className={classes.contentWrapper}>
@@ -60,15 +61,19 @@ const MatchCard = ({
 
         <div className={classes.awayTeam}>
           <div className={classes.teamLogoWrapper}>
-            <img src={competitionLogoUrl} alt={awayClubName} className={classes.image} />
+            <img
+              src={competitionLogoUrl}
+              alt={awayClubName}
+              className={classes.image}
+            />
           </div>
           <h3 className={classes.clubName}>{awayClubName}</h3>
         </div>
       </div>
 
-        <div className={classes.moreLink} onClick={handleNavigate}>
-          <ArrowLink />
-        </div>
+      <div className={classes.moreLink} onClick={handleNavigate}>
+        <ArrowLink />
+      </div>
     </div>
   );
 };

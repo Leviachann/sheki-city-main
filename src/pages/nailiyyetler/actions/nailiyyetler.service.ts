@@ -1,7 +1,8 @@
 import axiosInstance from 'core/configs/axios.config';
+import { IAchievementGrouped } from '../nailiyyetler'; 
 
-export const getGroupedAchievements = async (lang = 'az'): Promise<any> => {
-    const response = await axiosInstance.get('/Achievements/grouped', {
+export const getGroupedAchievements = async (lang = 'az'): Promise<IAchievementGrouped[]> => {
+    const response = await axiosInstance.get<IAchievementGrouped[]>('/Achievements/grouped', {
         headers: {
             'X-Lang-Code': lang,
         },

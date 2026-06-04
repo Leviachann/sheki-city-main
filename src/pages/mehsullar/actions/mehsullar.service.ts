@@ -9,7 +9,6 @@ export const getProducts = async (
     categoryId?: number,
     lang = 'az'
 ): Promise<IProductsResponse> => {
-    try {
         const response = await axiosInstance.get<IProductsResponse>(API.mehsullar, {
             params: {
                 page,
@@ -23,8 +22,4 @@ export const getProducts = async (
             withCredentials: false
         });
         return response.data;
-    } catch (error) {
-        console.error('Failed to fetch products', error);
-        throw error;
-    }
 };

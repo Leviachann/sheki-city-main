@@ -4,7 +4,7 @@ import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
 import { useIaneStyles } from './iane.style';
 import fifLogo from 'assets/images/icons/fif-logo.png';
 import { ArrowLeft } from 'assets/images/icons/arrows';
-import useLocalization from "assets/lang";
+import useLocalization from 'assets/lang';
 
 
 const IaneComponent = () => {

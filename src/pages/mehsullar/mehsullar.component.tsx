@@ -25,7 +25,6 @@ const MehsullarComponent = () => {
     );
 
     const handleSearch = (value: string) => {
-        console.log('[Mehsullar] handleSearch called with:', value);
         setSearchTerm(value);
         setCurrentPage(1); // Reset to page 1 on new search
     };

@@ -1,11 +1,16 @@
-export const debounce = (func: any, wait: number) => {
-    let timeout: any;
-    return function executedFunction(...args: any) {
+export const debounce = <T extends (...args: never[]) => void>(func: T, wait: number) => {
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    return function executedFunction(...args: Parameters<T>): void {
         const later = () => {
             timeout = null;
             func(...args);
         };
-        clearTimeout(timeout);
+
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        
         timeout = setTimeout(later, wait);
     };
 };

@@ -1,7 +1,7 @@
 import { useAchievementsCardStyles } from './achievements-card.style';
 import { AchievementCardProps } from './achievements-card';
 
-const AchievementsCard = ({ image, title, count, date, id }: AchievementCardProps) => {
+const AchievementsCard = ({ image, title, count, date}: AchievementCardProps) => {
     const classes = useAchievementsCardStyles();
 
     return (
