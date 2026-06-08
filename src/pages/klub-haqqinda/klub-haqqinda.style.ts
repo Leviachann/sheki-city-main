@@ -26,7 +26,7 @@ const styles = {
     },
   },  
   header: {
-    fontSize: rem(35),
+    fontSize: rem(24),
     fontFamily: 'Ecluid Circular Bold, sans-serif',
     color: colors.shekiGreyText,
   },

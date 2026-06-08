@@ -21,7 +21,7 @@ const styles = {
   body: {
     fontSize: rem(24),
     lineHeight: 1.7,
-    color: colors.shekiGreenDark,
+    color: colors.shekiGreyText,
     '& p': {
       marginBottom: rem(16),
     },

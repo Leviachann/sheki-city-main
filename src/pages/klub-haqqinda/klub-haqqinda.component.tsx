@@ -62,9 +62,7 @@ const KlubHaqqindaComponent = () => {
         ))}
       </div>
       
-      <h2 className={classes.header}>{translate('klub_planlar')}</h2>
-      
-      <SliderContainer>
+      <SliderContainer title={translate("klub_planlar") as string}>
         {plansNewsList.map((item) => (
           <NewsCard
             key={item.id}

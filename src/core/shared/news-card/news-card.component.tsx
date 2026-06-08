@@ -15,16 +15,24 @@ const NewsCard = ({ image, title, description, date, id }: NewsCardProps) => {
         navigate(goTo(Routes.xeberDetail, id));
     };
 
+    const truncateText = (text: string, maxLength: number) => {
+        if (!text) return '';
+        return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+    };
+
+    const truncatedTitle = truncateText(title, 35); 
+    const truncatedDescription = truncateText(description, 60);
+
     return (
         <div className={classes.card}>
             <div className={classes.imageWrapper}>
                 <img src={image} alt={title} className={classes.image} />
             </div>
 
-            <h3 className={classes.title}>{title}</h3>
+            <h3 className={classes.title}>{truncatedTitle}</h3>
             
             <p className={classes.description}>
-                {description}
+                {truncatedDescription}
             </p>
 
             <div className={classes.footer}>
