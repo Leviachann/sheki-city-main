@@ -13,7 +13,7 @@ const VacancyCard = ({ vacancy }: VacancyCardProps) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(goTo(Routes.vakansiyaDetail, vacancy.slug));
+    navigate(goTo(Routes.vakansiyaDetail, vacancy.slug), { state: { vacancy } });
   };
 
   const formatDate = (dateString: string) => {

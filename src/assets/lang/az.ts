@@ -125,6 +125,10 @@ export const az = {
     //vakansiyalar
     vakansiyalar_desc:'Sheki City klubu bütün vakansiyaları',
     vakansiyalar_say:'Ümumi vakansiya sayı',
-
     butun_vakansiyalar: 'Bütün vakansiyalar',
+    vakansiya_detallari: 'Vakansiyanın detalları',
+    baslama_tarixi: 'Başlama tarixi',
+    bitme_tarixi: 'Bitmə tarixi',
+    muraciet_et: 'Müraciət et',
+    muraciet_son_tarix: 'Müraciət üçün son tarix',
 };
