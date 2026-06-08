@@ -4,7 +4,7 @@ import colors from 'assets/styles/abstracts/color';
 
 const styles = {
   header: {
-    fontSize: rem(40),
+    fontSize: rem(35),
     fontFamily: 'Ecluid Circular Bold, sans-serif',
     color: colors.shekiGreyText,
   },

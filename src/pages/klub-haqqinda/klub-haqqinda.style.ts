@@ -1,12 +1,14 @@
 import { createUseStyles } from 'react-jss';
 import { rem } from 'assets/styles/abstracts/functions';
+import colors from 'assets/styles/abstracts/color';
 
 const styles = {
   textContainer:{
-    margin:`${rem(80)} auto`,
+    margin:`${rem(60)} auto`,
   },
   aboutText:{
-    
+    lineHeight:2,
+    textAlign:'center',
   },
   gridContainer: {
     display: 'grid',
@@ -22,6 +24,11 @@ const styles = {
     '@media (max-width: 600px)': {
       gridTemplateColumns: '1fr',
     },
+  },  
+  header: {
+    fontSize: rem(35),
+    fontFamily: 'Ecluid Circular Bold, sans-serif',
+    color: colors.shekiGreyText,
   },
 };
 

@@ -15,7 +15,7 @@ const themeConfig: ThemeConfig = {
       colorPrimary: colors.shekiGreen,
       borderRadius: 8,
     },
-Input: {
+    Input: {
       borderRadius: 20,
       colorBorder: 'transparent',
       controlOutline: 'transparent',
@@ -36,7 +36,9 @@ Input: {
       colorTextPlaceholder: colors.shekiGreenDark,
       controlItemBgActive: 'transparent',
     },
-
+    Carousel: {
+      dotWidth: 8,
+    },
   },
 };
 
