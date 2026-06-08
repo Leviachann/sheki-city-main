@@ -1,5 +1,152 @@
-const OyuncuDetailComponent = () => {
-    return <div>Home</div>;
+import PageHeaderComponent from 'core/shared/section-header/section-header.component';
+import useLocalization from 'assets/lang';
+import { Routes } from 'router/routes';
+import { useOyuncuDetailStyles } from './oyuncu-detail.style';
+import { S3_BASE_URL } from 'core/configs/axios.config';
+import defaultPlayerPlaceholder from 'assets/images/statics/mock-player-detail.png';
+import { useLocation } from 'react-router-dom';
+import { PlayerDetailProps } from './oyuncu-profili';
+
+const LOCAL_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280"><rect width="100%" height="100%" fill="%23e0e0e0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="%23666666">Sheki City FC</text></svg>`;
+
+const OyuncuDetailComponent = ({ player: propPlayer }: PlayerDetailProps) => {
+  const translate = useLocalization();
+  const classes = useOyuncuDetailStyles();
+  
+  const location = useLocation();
+  const statePlayer = location.state?.player;
+
+  const player = propPlayer || statePlayer;
+
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return '—';
+    const parts = dateString.split('T')[0].split('-');
+    if (parts.length !== 3) return dateString;
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  };
+
+  const formatTransferFee = (fee?: number) => {
+    if (!fee) return '—';
+    const millionVal = fee / 1000000;
+    if (millionVal >= 0.1) {
+      return `${millionVal.toFixed(1).replace('.', ',')} ${translate('milyon_euro')}`;
+    }
+    return `${fee.toLocaleString()} euro`;
+  };
+
+  const getFootLabel = (foot?: string) => {
+    if (foot === 'Left') return translate('sol_ayaq');
+    if (foot === 'Right') return translate('sag_ayaq');
+    return translate('her_ikisi');
+  };
+
+  const displayData = {
+    name: player?.fullName || 'Nurlan Məmmədov',
+    birthDate: player ? formatDate(player.dateOfBirth) : '13/12/1996',
+    birthPlace: player?.birthPlace || translate('default_birth_place'),
+    position: player?.photoUrl || translate('default_position'),
+    jerseyNumber: player?.jerseyNumber !== undefined ? player.jerseyNumber.toString().padStart(2, '0') : '74',
+    height: player?.heightCm ? `${player.heightCm} sm` : '180 sm',
+    weight: player?.weightKg ? `${player.weightKg} kq` : '68 kq',
+    foot: getFootLabel(player?.preferredFoot),
+    contractStart: player ? formatDate(player.contractStartDate) : '01/07/2019',
+    contractEnd: player ? formatDate(player.contractEndDate) : '01/07/2028',
+    debutDate: player ? formatDate(player.clubDebutDate) : '05/08/2019',
+    marketValue: player ? formatTransferFee(player.transferFee) : `5,8 ${translate('milyon_euro')}`,
+    nationality: player?.nationality === 'Foreign' ? translate('xarici') : translate('yerli'),
+  };
+
+  const rawImagePath = player?.positionName || '';
+  const cleanImagePath = rawImagePath.trim();
+  const playerImage = cleanImagePath ? `${S3_BASE_URL}${cleanImagePath}` : defaultPlayerPlaceholder;
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const currentTarget = e.currentTarget;
+    if (currentTarget.src !== LOCAL_PLACEHOLDER) {
+      currentTarget.src = LOCAL_PLACEHOLDER;
+    }
+  };
+
+  const breadcrumbs = [
+    { label: translate('ana_sehife') as string, path: Routes.home },
+    {
+      label: translate('oyuncu_profili') as string,
+      path: Routes.oyuncuProfili,
+    },
+    { label: displayData.name },
+  ];
+
+  return (
+    <div className={classes.pageContainer}>
+      <PageHeaderComponent breadcrumbs={breadcrumbs} />
+
+      <div className={classes.detailCard}>
+        <div className={classes.imageContainer}>
+          <img
+            src={playerImage}
+            alt={displayData.name}
+            className={classes.playerImage}
+            onError={handleImageError}
+          />
+        </div>
+
+        <div className={classes.infoGrid}>
+          <div className={classes.infoColumn}>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('ad_soyad')}</p>
+              <h2 className={classes.valueHighlight}>{displayData.name}</h2>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('movqe_forma')}</p>
+              <p className={classes.value}>{displayData.position} / #{displayData.jerseyNumber}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('doguldugu_il')}</p>
+              <p className={classes.value}>{displayData.birthDate}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('doguldugu_yer')}</p>
+              <p className={classes.value}>{displayData.birthPlace}</p>
+            </div>
+          </div>
+
+          <div className={classes.infoColumn}>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('boy')}</p>
+              <p className={classes.value}>{displayData.height}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('ceki')}</p>
+              <p className={classes.value}>{displayData.weight}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('islek_ayaq')}</p>
+              <p className={classes.value}>{displayData.foot}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('vetendasliq')}</p>
+              <p className={classes.value}>{displayData.nationality}</p>
+            </div>
+          </div>
+
+          <div className={classes.infoColumn}>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('muqavile_tarixi')}</p>
+              <p className={classes.value}>{displayData.contractStart} — {displayData.contractEnd}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('klubdaki_debut')}</p>
+              <p className={classes.value}>{displayData.debutDate}</p>
+            </div>
+            <div className={classes.dataGroup}>
+              <p className={classes.label}>{translate('transfer_qiymeti')}</p>
+              <p className={classes.value}>{displayData.marketValue}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default OyuncuDetailComponent;

@@ -1,15 +1,14 @@
-
 export const az = {
     rights: 'Bütün hüquqlar qorunur',
     copyright: 'Copyright',
     organisation: 'Azintelecom MMC',
-    
+     
     // errors
     input_required: 'Bu xana mütləqdir',
     input_min_length: 'Ən azı {min} simvol olmalıdır',
     email_invalid: 'Email düzgün deyil',
 
-    // auth
+    // auth 
     login_sign_in_button: 'Daxil ol',
     login_title: 'Daxil ol',
     login_subtitle: 'Davam etmək üçün hesabınıza daxil olun.',
@@ -78,6 +77,10 @@ export const az = {
     reqib_komanda:'Rəqib komanda',
     oyunlar_neticeleri:'Sheki City təqdimatları və nəticələr',
 
+    //players
+    oyuncu_desc:'Sheki City klubunun bütün oyunçuları',
+    movqe_filtri:'Mövqe',
+
     //achievements
     nailiyyetler_title :'Əldə edilmiş naliyyətlər',
     nailiyyetler_desc :'Sheki City klubunun əldə etdiyi naliyyətlər',
@@ -97,4 +100,25 @@ export const az = {
     klub_melumat:'Klub haqqında bütün məlumatlar',
     klub_planlar:'Gələcək planlar və inkişaf strategiyası',
     klub_haqqinda_short_desc: 'Şəki PFK-nın hekayəsi Azərbaycan futbolunda tamamilə unikal bir yoldur və məhz buna görə də bu klub bölgənin idman ruhunu peşəkar səviyyədə təmsil edir. Bu, böyük əzmkarlıq, tarixi yeniliklər və komandanın regional liqalardan peşəkar pillələrə sürətli yüksəlişini əks etdirən möhtəşəm bir mübarizə nağılıdır. Klubumuzun fəaliyyəti hücummeylli, azarkeşləri heyran edən və Şəki futboluna yaraşan dramatik qələbələrlə zəngin ənənələrə əsaslanır. "Klub haqqında" bölməmizdə sizi 2018-ci ildəki ilk addımlarımızdan başlayaraq, liqa rekordlarını alt-üst etdiyimiz möhtəşəm oyunlara, keçdiyimiz çətin sınaqlara və bu şanlı kluba şərəflə xidmət edən fədakar futbolçu, məşqçi və rəhbər heyətimizin unudulmaz hekayələrinə doğru səyahətə çıxarırıq.',
+
+    // player detail page
+    ad_soyad: 'Ad soyad',
+    movqe_forma: 'Mövqe / Forma nömrəsi',
+    doguldugu_il: 'Doğulduğu il',
+    doguldugu_yer: 'Doğulduğu yer',
+    boy: 'Boy',
+    ceki: 'Çəki',
+    islek_ayaq: 'İşlək ayaq',
+    vetendasliq: 'Vətəndaşlıq',
+    muqavile_tarixi: 'Müqavilə tarixi',
+    klubdaki_debut: 'Klubdakı debütü',
+    transfer_qiymeti: 'Transfer qiyməti',
+    milyon_euro: 'milyon euro',
+    sol_ayaq: 'Sol',
+    sag_ayaq: 'Sağ',
+    her_ikisi: 'Hər ikisi',
+    xarici: 'Xarici',
+    yerli: 'Yerli',
+    default_birth_place: 'Şəki',
+    default_position: 'Qapıçı'
 };
