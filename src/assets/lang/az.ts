@@ -101,7 +101,7 @@ export const az = {
     klub_planlar:'Gələcək planlar və inkişaf strategiyası',
     klub_haqqinda_short_desc: 'Şəki PFK-nın hekayəsi Azərbaycan futbolunda tamamilə unikal bir yoldur və məhz buna görə də bu klub bölgənin idman ruhunu peşəkar səviyyədə təmsil edir. Bu, böyük əzmkarlıq, tarixi yeniliklər və komandanın regional liqalardan peşəkar pillələrə sürətli yüksəlişini əks etdirən möhtəşəm bir mübarizə nağılıdır. Klubumuzun fəaliyyəti hücummeylli, azarkeşləri heyran edən və Şəki futboluna yaraşan dramatik qələbələrlə zəngin ənənələrə əsaslanır. "Klub haqqında" bölməmizdə sizi 2018-ci ildəki ilk addımlarımızdan başlayaraq, liqa rekordlarını alt-üst etdiyimiz möhtəşəm oyunlara, keçdiyimiz çətin sınaqlara və bu şanlı kluba şərəflə xidmət edən fədakar futbolçu, məşqçi və rəhbər heyətimizin unudulmaz hekayələrinə doğru səyahətə çıxarırıq.',
 
-    // player detail page
+    // player-detail
     ad_soyad: 'Ad soyad',
     movqe_forma: 'Mövqe / Forma nömrəsi',
     doguldugu_il: 'Doğulduğu il',
@@ -120,5 +120,11 @@ export const az = {
     xarici: 'Xarici',
     yerli: 'Yerli',
     default_birth_place: 'Şəki',
-    default_position: 'Qapıçı'
+    default_position: 'Qapıçı',
+
+    //vakansiyalar
+    vakansiyalar_desc:'Sheki City klubu bütün vakansiyaları',
+    vakansiyalar_say:'Ümumi vakansiya sayı',
+
+    butun_vakansiyalar: 'Bütün vakansiyalar',
 };
