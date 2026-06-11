@@ -22,7 +22,6 @@ import MehsullarComponent from 'pages/mehsullar/mehsullar.component';
 import MehsulDetailComponent from 'pages/mehsullar/mehsul-detail.component';
 import IaneComponent from 'pages/iane/iane.component';
 import ForumComponent from 'pages/forum/forum.component';
-import ForumCategoryComponent from 'pages/forum/forum-category.component';
 
 import NotFoundComponent from 'pages/not-found/not-found.component';
 
@@ -46,7 +45,7 @@ const router = createBrowserRouter(
                 { path: Routes.vakansiyaDetail, element: <VakansiyaDetailComponent /> },
                 // 2.
                 { path: Routes.oyunlar,         element: <OyunlarComponent /> },
-                { path: Routes.oyunDetail,      element: <OyunDetailComponent /> },
+                { path: Routes.oyunDetail,      element: <OyunDetailComponent/> },
                 { path: Routes.canliOyunlar,    element: <CanliOyunlarComponent /> },
                 { path: Routes.xeberler,        element: <XeberlerComponent /> },
                 { path: Routes.xeberDetail,     element: <XeberDetailComponent /> },
@@ -55,7 +54,6 @@ const router = createBrowserRouter(
                 { path: Routes.mehsulDetail,    element: <MehsulDetailComponent /> },
                 { path: Routes.iane,            element: <IaneComponent /> },
                 { path: Routes.forum,           element: <ForumComponent /> },
-                { path: Routes.forumCategory,   element: <ForumCategoryComponent /> },
             ],
         },
         {
