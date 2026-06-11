@@ -3,81 +3,69 @@ import { rem } from 'assets/styles/abstracts/functions';
 import colors from 'assets/styles/abstracts/color';
 import fonts from 'assets/styles/abstracts/fonts';
 
+const IMAGE_OVERFLOW = 60;
+
 const styles = {
     card: {
-        backgroundColor: colors.paleBlack, // Dark card background
+        width:'100%',
+        backgroundColor: colors.white,
         borderRadius: rem(20),
-        padding: rem(20),
+        padding: `${rem(40)} ${rem(16)} ${rem(20)} ${rem(16)}`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        boxShadow: colors.boxShadow, // Using predefined shadow suitable for dark mode
+        boxShadow: colors.boxShadow,
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         cursor: 'pointer',
-        border: `1px solid ${colors.gray}`, // Subtle border
+        position: 'relative',
+        overflow: 'visible',
+        marginTop: rem(IMAGE_OVERFLOW),
         '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: `0 ${rem(8)} ${rem(30)} rgba(67, 97, 238, 0.4)`, // Glow effect on hover
+            transform: 'translateY(-4px)',
         },
     },
     imageContainer: {
-        width: '100%',
-        height: rem(250),
+        position: 'relative',
+        transform: `translateY(calc(-${rem(IMAGE_OVERFLOW)} + ${rem(-20)}))`,
+        width: '80%',
+        height: rem(400),
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: rem(20),
-        backgroundColor: colors.white, // Keep white background for product images to pop out, or transparent
-        borderRadius: rem(10),
-        padding: rem(10),
+        alignItems: 'flex-end',
+        pointerEvents: 'none',
+        marginBottom: `calc(-${rem(IMAGE_OVERFLOW)} + ${rem(0)})`,
         '& img': {
-            maxWidth: '100%',
-            maxHeight: '100%',
+            width: '100%',
+            height: '100%',
             objectFit: 'contain',
         },
     },
-    variants: {
-        display: 'flex',
-        gap: rem(8),
-        marginBottom: rem(16),
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    variantDot: {
-        width: rem(8),
-        height: rem(8),
-        borderRadius: '50%',
-        backgroundColor: colors.shekiGreenDark,
-        '&:nth-child(2)': {
-            backgroundColor: colors.shekiGreen,
-        },
-        '&:nth-child(3)': {
-            backgroundColor: 'transparent',
-            border: `1px solid ${colors.shekiGreen}`,
-        },
-    },
     title: {
-        fontFamily: fonts.fontBold,
+        fontFamily: fonts.fontExtraBold,
         fontSize: rem(14),
-        color: colors.white, // White text for dark mode
+        color: colors.black,
         textAlign: 'center',
-        marginBottom: rem(20),
-        lineHeight: 1.5,
-        minHeight: rem(42),
+        width: '100%',
+        marginTop: rem(12),
+        marginBottom: rem(16),
+        lineHeight: 1.4,
+        minHeight: rem(40),
+        paddingHorizontal: rem(8),
     },
     button: {
         width: '100%',
-        backgroundColor: colors.shekiGreenDark,
+        backgroundColor: colors.shekiGreen,
         color: colors.white,
         border: 'none',
-        borderRadius: rem(20),
+        borderRadius: rem(50),
         padding: `${rem(12)} ${rem(24)}`,
-        fontFamily: fonts.fontMedium,
+        fontFamily: fonts.fontBold,
         fontSize: rem(14),
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
+        marginTop: 'auto',
         '&:hover': {
-            backgroundColor: colors.shekiGreen,
+            backgroundColor: colors.shekiGreenDark,
         },
     },
 };

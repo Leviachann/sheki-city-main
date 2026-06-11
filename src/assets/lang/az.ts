@@ -68,6 +68,13 @@ export const az = {
     butun_mehsullar: 'Bütün məhsullar',
     indi_alin: 'İndi alın',
     axtar: 'Axtar',
+    yuklenir: 'Yüklənir...',
+    mehsul_tapilmadi: 'Məhsul tapılmadı',
+    movcud: 'Mövcud',
+    valyuta: 'Valyuta',
+    beli: 'Bəli',
+    xeyr: 'Xeyr',
+    no_products:'Məhsul tapılmadı',
 
     //live-games
     canli_yayin:'Canlı Yayın',

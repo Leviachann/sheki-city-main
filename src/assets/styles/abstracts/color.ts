@@ -69,7 +69,6 @@ const colors = {
   btnBorderColor: '#d3d3d3',
   bgColor: '#f9f9f9',
   //alert
-
   alertPrimary: '#eaf1ff',
   alertTextPrimary: '#4361ee',
   alertWarning: '#fff9ed',
@@ -111,7 +110,7 @@ const colors = {
   gray: '#515365',
   main: '#4361ee',
   leftMenuShadow: '0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06)',
-  boxShadow: '0 0 40px 0 rgba(94, 92, 154, 0.6 )',
+  boxShadow: '0 0 40px 0 rgba(149, 148, 199, 0.29)',
   paleBlack: '#030305',
   paleHover: '#bfc9d4',
 };

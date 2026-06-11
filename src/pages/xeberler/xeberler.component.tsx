@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Pagination } from 'antd';
 import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
 import useLocalization from 'assets/lang';
-import newsImg from '../../assets/images/statics/news.png';
+import newsImg from '../../assets/images/statics/news.png'; // Fallback static image
 import NewsCard from 'core/shared/news-card/news-card.component';
 import { useXeberlerStyles } from './xeberler.style';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
 import { useGetXeberler } from './actions/xeberler.query';
 import { useGetNewsCategories } from './actions/xeber-categories.query'; 
+import { S3_BASE_URL } from 'core/configs/axios.config'; // Imported S3 Constant
 
 const XeberlerComponent = () => {
     const translate = useLocalization();
@@ -92,6 +93,10 @@ const XeberlerComponent = () => {
             <section className={classes.container}>
                 <div className={classes.grid}>
                     {filteredNewsList.map((item) => {
+                        const articleImage = item.coverImageUrl 
+                            ? `${S3_BASE_URL}${item.coverImageUrl}` 
+                            : newsImg;
+
                         const cardProps = {
                             id: item.id,
                             title: item.title,
@@ -101,7 +106,7 @@ const XeberlerComponent = () => {
                             date: item.publishedAt 
                                 ? new Date(item.publishedAt).toLocaleDateString('az-AZ') 
                                 : '',
-                            image: newsImg
+                            image: articleImage
                         };
 
                         return <NewsCard key={item.id} {...cardProps} />;

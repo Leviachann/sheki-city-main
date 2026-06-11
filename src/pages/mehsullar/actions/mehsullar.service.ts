@@ -19,7 +19,7 @@ export const getProducts = async (
             headers: {
                 'X-Lang-Code': lang,
             },
-            withCredentials: false
+            withCredentials: false,
         });
         return response.data;
 };

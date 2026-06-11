@@ -1,3 +1,4 @@
+import React from 'react';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
 import useLocalization from 'assets/lang';
 import AboutCard from '../../core/shared/about-club/about-card.component';
@@ -11,6 +12,7 @@ import playersBg from 'assets/images/statics/players-cover.jpg';
 import newsImg from '../../assets/images/statics/news.png';
 import { Routes } from 'router/routes';
 import SliderContainer from 'core/shared/slider-container/slider-container.component';
+import { S3_BASE_URL } from 'core/configs/axios.config';
 
 const KlubHaqqindaComponent = () => {
   const translate = useLocalization();
@@ -63,20 +65,26 @@ const KlubHaqqindaComponent = () => {
       </div>
       
       <SliderContainer title={translate("klub_planlar") as string}>
-        {plansNewsList.map((item) => (
-          <NewsCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.excerpt}
-            date={
-              item.publishedAt
-                ? new Date(item.publishedAt).toLocaleDateString("az-AZ")
-                : ""
-            }
-            image={newsImg}
-          />
-        ))}
+        {plansNewsList.map((item) => {
+          const dynamicSliderImage = item.coverImageUrl 
+            ? `${S3_BASE_URL}${item.coverImageUrl}` 
+            : newsImg;
+
+          return (
+            <NewsCard
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              description={item.excerpt}
+              date={
+                item.publishedAt
+                  ? new Date(item.publishedAt).toLocaleDateString("az-AZ")
+                  : ""
+              }
+              image={dynamicSliderImage}
+            />
+          );
+        })}
       </SliderContainer>
     </div>
   );

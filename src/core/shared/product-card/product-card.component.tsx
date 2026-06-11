@@ -1,49 +1,40 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useLocalization from 'assets/lang';
 import { IProduct } from 'pages/mehsullar/mehsullar.d';
 import { useProductCardStyles } from './product-card.style';
 import placeholderImage from 'assets/images/statics/news.png';
 import { Routes, goTo } from 'router/routes';
+import { S3_BASE_URL } from 'core/configs/axios.config';
 
-const ProductCard: React.FC<IProduct> = (props) => {
+const ProductCard = ({ id, name, images }: IProduct) => {
     const navigate = useNavigate();
     const translate = useLocalization();
     const classes = useProductCardStyles();
 
-    // Dynamically derive the base domain from the VITE_APP_API_MAIN environment variable
-    const apiMain = import.meta.env.VITE_APP_API_MAIN || '';
-    const baseDomain = apiMain.split('/api/v1/')[0] || 'https://dev-football-club-api.azintelecom.az';
-
-    const getFullImageUrl = (path?: string) => {
-        if (!path) return '';
-        if (path.startsWith('http')) return path;
-        return `${baseDomain}${path}`;
-    };
-
     const handleNavigate = () => {
-        navigate(goTo(Routes.mehsulDetail, props.id));
+        navigate(goTo(Routes.mehsulDetail, id));
     };
 
-    // Find primary image or fallback to first image or placeholder
-    const primaryImage = props.images?.find(img => img.isPrimary) || props.images?.[0];
-    const displayImage = primaryImage ? getFullImageUrl(primaryImage.imageUrl) : placeholderImage;
+    const primaryImage = images?.find(img => img.isPrimary) ?? images?.[0];
+    const displayImage = primaryImage?.imageUrl
+        ? `${S3_BASE_URL}${primaryImage.imageUrl}`
+        : placeholderImage;
 
     return (
         <div className={classes.card} onClick={handleNavigate}>
             <div className={classes.imageContainer}>
-                <img src={displayImage} alt={props.name} />
-            </div>
-            
-            <div className={classes.variants}>
-                <div className={classes.variantDot}></div>
-                <div className={classes.variantDot}></div>
-                <div className={classes.variantDot}></div>
+                <img src={displayImage} alt={name} />
             </div>
 
-            <h3 className={classes.title}>{props.name}</h3>
+            <h3 className={classes.title}>{name}</h3>
 
-            <button className={classes.button} onClick={(e) => { e.stopPropagation(); handleNavigate(); }}>
+            <button
+                className={classes.button}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavigate();
+                }}
+            >
                 {translate('indi_alin') as string}
             </button>
         </div>
