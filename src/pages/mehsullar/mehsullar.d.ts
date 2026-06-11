@@ -1,3 +1,9 @@
+export interface IProductSize {
+    id: number;
+    sortOrder: number;
+    name: string;
+}
+
 export interface IProductImage {
     id: number;
     imageUrl: string;
@@ -23,6 +29,7 @@ export interface IVariant {
     sku: string;
     stockQty: number;
     priceOverride?: number;
+    productSize?: IProductSize; // Added to map backend payload cleanly
 }
 
 export interface IProduct {
