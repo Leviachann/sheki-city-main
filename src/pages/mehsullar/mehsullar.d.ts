@@ -29,7 +29,7 @@ export interface IVariant {
     sku: string;
     stockQty: number;
     priceOverride?: number;
-    productSize?: IProductSize; // Added to map backend payload cleanly
+    productSize?: IProductSize; 
 }
 
 export interface IProduct {

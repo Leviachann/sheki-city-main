@@ -63,6 +63,7 @@ export const az = {
     azarkes_klubu_desc: 'Tanışlıq, yerli fan qrupları',
 
     // mehsullar
+    mehsul:'Məhsul',
     mehsullar: 'Məhsullar',
     mehsullar_subtitle: 'Sheki City klubunun bütün məhsullarının satışı',
     butun_mehsullar: 'Bütün məhsullar',
