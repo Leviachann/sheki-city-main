@@ -1,13 +1,12 @@
-import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
-
+import React from 'react';
+import HomeBanner from './home-banner/home-banner.component';
 
 const HomeComponent = () => {
-    return (
-        <div>
-            <PageHeroComponent title='Sheki City FK' subtitle='Xoş gəlmisiniz!' />
-        </div>
-    );
+  return (
+    <div>
+      <HomeBanner />
+    </div>
+  );
 };
-
 
 export default HomeComponent;

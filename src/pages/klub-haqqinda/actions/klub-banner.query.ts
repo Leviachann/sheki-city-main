@@ -16,11 +16,11 @@ export interface IBannerResponse {
   };
 }
 
-export const useGetAboutClubBanner = (lang = 'az') => {
+export const useGetAboutClubBanner = (id: number, lang = 'az') => {
   return useQuery<IBannerResponse, Error>(
-    ['aboutClubBanner', lang],
+    ['aboutClubBanner', id, lang], // Include id in the cache key
     async () => {
-      const response = await axiosInstance.get<IBannerResponse>('/Banners/15', {
+      const response = await axiosInstance.get<IBannerResponse>(`/Banners/${id}`, {
         headers: {
           'X-Lang-Code': lang,
         },

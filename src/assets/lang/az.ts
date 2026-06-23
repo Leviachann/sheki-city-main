@@ -139,4 +139,8 @@ export const az = {
     bitme_tarixi: 'Bitmə tarixi',
     muraciet_et: 'Müraciət et',
     muraciet_son_tarix: 'Müraciət üçün son tarix',
+
+    //ana-sehife
+    ana_title:'Sheki City rəsmi web səhifəsinə xoş gəlmisiniz!',
+    ana_desc:'Sheki City klubuna dəstək almaq üçün ianə edin',
 };

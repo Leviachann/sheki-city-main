@@ -4,7 +4,7 @@ import { S3_BASE_URL } from 'core/configs/axios.config';
 
 const ClubBanner = () => {
   const classes = useClubBannerStyles();
-  const { data: banner, isLoading, error } = useGetAboutClubBanner('az');
+  const { data: banner, isLoading, error } = useGetAboutClubBanner(15, 'az');
 
   if (isLoading || error || !banner || !banner.isActive) {
     return null; 
