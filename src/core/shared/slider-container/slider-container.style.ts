@@ -13,10 +13,11 @@ const styles = {
     alignItems: 'center',
     marginBottom: rem(24),
   },
-  header: {
-    fontSize: rem(24),
+title: {
+    fontSize: rem(28),
     fontWeight: 700,
-    fontFamily: 'Euclid Circular Bold, sans-serif',
+    color: colors.shekiGreenDark,
+    margin: `${rem(20)} 0`,
   },
   sliderNavigationBox: {
     display: 'flex',

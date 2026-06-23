@@ -26,9 +26,10 @@ const styles = {
     },
   },  
   header: {
-    fontSize: rem(24),
-    fontFamily: 'Ecluid Circular Bold, sans-serif',
-    color: colors.shekiGreyText,
+    fontSize: rem(28),
+    fontWeight: 700,
+    color: colors.shekiGreenDark,
+    margin: `${rem(20)} 0`,
   },
 };
 

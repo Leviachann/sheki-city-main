@@ -14,7 +14,7 @@ const SliderContainer = ({ title, children }: SliderContainerProps) => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.sectionHeaderWithControls}>
-        <h2 className={classes.header}>{title}</h2>
+        <h2 className={classes.title}>{title}</h2>
 
         <div className={classes.sliderNavigationBox}>
           <button
