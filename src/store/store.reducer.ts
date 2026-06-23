@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStore, IUser } from './store.d';
-import {az} from 'assets/lang/az';
+import { az } from 'assets/lang/az';
 
 const initialState: IStore = {
     loader: false,
     sideMenu: false,
+    authModal: false,
     languages: [
         { id: 1, label: 'AZ', value: 'az' },
         { id: 2, label: 'EN', value: 'en' },
@@ -30,8 +31,11 @@ const rootSlice = createSlice({
         setUser: (state, action: PayloadAction<IUser | null>) => {
             state.user = action.payload;
         },
+        setAuthModal: (state, action: PayloadAction<boolean>) => {
+            state.authModal = action.payload;
+        },
     },
 });
 
-export const { setLoader, toggleSideMenu, setLocale, setUser } = rootSlice.actions;
+export const { setLoader, toggleSideMenu, setLocale, setUser, setAuthModal } = rootSlice.actions;
 export default rootSlice.reducer;

@@ -13,4 +13,7 @@ export const useStore = <T extends keyof IStore>(key: T): IStore[T] => {
     return useSelector((state: IStore) => state[key]);
 };
 
+export type RootState = IStore;
+export type AppDispatch = typeof store.dispatch;
+
 export default store;

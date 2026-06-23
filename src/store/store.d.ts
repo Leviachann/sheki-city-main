@@ -8,10 +8,13 @@ export interface ILanguage {
 
 export interface IUser {
   id: number;
-  full_name: string;
+  fullName: string;     
   email: string;
-  avatar_url: string | null;
-  preferred_lang: string;
+  avatarUrl: string | null;
+  role: string;
+  preferredLang: string; 
+  isActive: boolean;
+  accessToken?: string;  
 }
 
 export interface IStore {
@@ -20,5 +23,5 @@ export interface IStore {
   languages: ILanguage[];
   locale: Record<string, string>;
   user: IUser | null;
+  authModal: boolean;   
 }
-

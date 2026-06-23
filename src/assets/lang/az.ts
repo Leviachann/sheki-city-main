@@ -8,6 +8,7 @@ export const az = {
     input_min_length: 'Ən azı {min} simvol olmalıdır',
     email_invalid: 'Email düzgün deyil',
     oyuncu_yoxdur:'Bu kateqoriyada oyunçu yoxdur.',
+    sifreni_unutmusan:'Şifrəni unutmusan',
 
     // auth 
     login_sign_in_button: 'Daxil ol',

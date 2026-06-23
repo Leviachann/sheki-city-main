@@ -1,8 +1,8 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes } from 'router/routes';
 import { useStore } from 'store/store.config';
-import { toggleSideMenu } from 'store/store.reducer';
+import { toggleSideMenu, setAuthModal } from 'store/store.reducer';
 import { useSideMenuStyles } from './left-menu.style';
 import SideMenuItemComponent from '../side-menu-item/left-menu-item.component';
 import classNames from 'classnames';
@@ -19,50 +19,19 @@ const SideMenuComponent = memo(({ isOpen }: { isOpen: boolean }) => {
   const handleClose = () => {
     dispatch(toggleSideMenu());
   };
+  const handleOpenLogin = useCallback(() => {
+    dispatch(toggleSideMenu());
+    dispatch(setAuthModal(true)); 
+  }, [dispatch]);
 
   const items = [
-    {
-      id: 1,
-      name: translate('oyunlar'),
-      link: Routes.oyunlar,
-      icon: <OyunlarIcon />,
-    },
-    {
-      id: 2,
-      name: translate('oyuncu_profili'),
-      link: Routes.oyuncuProfili,
-      icon: <OyuncuProfiliIcon />,
-    },
-    {
-      id: 3,
-      name: translate('mehsul_satisi'),
-      link: Routes.mehsullar,
-      icon: <MehsullarIcon/>,
-    },
-    {
-      id: 4,
-      name: translate('xeberler'),
-      link: Routes.xeberler,
-      icon: <XeberlerIcon/>,
-    },
-    {
-      id: 5,
-      name: translate('klub_tarixi'),
-      link: Routes.klubTarixi,
-      icon: <KlubTarixiIcon />,
-    },
-    {
-      id: 6,
-      name: translate('nailiyyetler'),
-      link: Routes.nailiyyetler,
-      icon: <NailiyyetlerIcon />,
-    },
-    {
-      id: 7,
-      name: translate('forum'),
-      link: Routes.forum,
-      icon: <ForumIcon />,
-    },
+    { id: 1, name: translate('oyunlar'), link: Routes.oyunlar, icon: <OyunlarIcon /> },
+    { id: 2, name: translate('oyuncu_profili'), link: Routes.oyuncuProfili, icon: <OyuncuProfiliIcon /> },
+    { id: 3, name: translate('mehsul_satisi'), link: Routes.mehsullar, icon: <MehsullarIcon/> },
+    { id: 4, name: translate('xeberler'), link: Routes.xeberler, icon: <XeberlerIcon/> },
+    { id: 5, name: translate('klub_tarixi'), link: Routes.klubTarixi, icon: <KlubTarixiIcon /> },
+    { id: 6, name: translate('nailiyyetler'), link: Routes.nailiyyetler, icon: <NailiyyetlerIcon /> },
+    { id: 7, name: translate('forum'), link: Routes.forum, icon: <ForumIcon /> },
   ];
 
   const menuClasses = classNames({
@@ -84,19 +53,17 @@ const SideMenuComponent = memo(({ isOpen }: { isOpen: boolean }) => {
 
         <div className={classes.authRow}>
           {user ? (
-             <div className={classes.userRow}>
-          <div className={classes.authIcon}>
-            <ProfileIcon/>
-          </div>
-              <span className={classes.userName}>{ user.full_name}</span>
+            <div className={classes.userRow}>
+              <div className={classes.authIcon}>
+                <ProfileIcon/>
+              </div>
+              <span className={classes.userName}>{user.fullName}</span> 
             </div>
           ) : (
-            
-            <div className={classes.loginRow}>
-                
-          <div className={classes.authIcon}>
-            <ProfileIcon/>
-          </div>
+            <div className={classes.loginRow} onClick={handleOpenLogin} style={{ cursor: 'pointer' }}>
+              <div className={classes.authIcon}>
+                <ProfileIcon/>
+              </div>
               <span className={classes.loginText}>{translate('daxil_ol')}</span>
             </div>
           )}

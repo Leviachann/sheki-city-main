@@ -2,13 +2,13 @@ import axios, { AxiosError } from 'axios';
 import store from 'store/store.config';
 import { setLoader } from 'store/store.reducer';
 import { errorToast, successToast } from 'core/shared/toast/toast';
-import { getToken } from 'core/helpers/get-token';
 
+const isDevelopment = import.meta.env.DEV;
 const API_BASE_URL = import.meta.env.VITE_APP_API_MAIN;
 export const S3_BASE_URL = import.meta.env.VITE_APP_S3_BASE;
 
 const axiosInstance = axios.create({
-    baseURL: `${API_BASE_URL}/api/v1`,
+    baseURL: isDevelopment ? '/api/v1' : `${API_BASE_URL}/api/v1`,
     withCredentials: true, 
 });
 
@@ -33,14 +33,13 @@ const processQueue = (error: AxiosError | null, token: string | null = null) => 
 
 axiosInstance.interceptors.request.use((config) => {
     store.dispatch(setLoader(true));
-
-    const token = getToken();
+    const token = store.getState().user?.accessToken || localStorage.getItem('accessToken');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
 
     const { locale } = store.getState();
-    const currentLang = Object.keys(locale).length ? 'az' : 'az'; 
+    const currentLang = Object.keys(locale || {}).length ? 'az' : 'az'; 
     config.headers['Accept-Language'] = currentLang;
 
     return config;
@@ -51,7 +50,9 @@ axiosInstance.interceptors.response.use(
         store.dispatch(setLoader(false));
 
         if (['post', 'put', 'patch', 'delete'].includes(response.config.method ?? '')) {
-            successToast('Əməliyyat uğurla tamamlandı');
+            if (!response.config.url?.includes('/user/refresh') && !response.config.url?.includes('auth/refresh')) {
+                successToast('Əməliyyat uğurla tamamlandı');
+            }
         }
 
         return response;
@@ -79,8 +80,12 @@ axiosInstance.interceptors.response.use(
             isRefreshing = true;
 
             try {
+                const refreshUrl = isDevelopment 
+                    ? '/api/v1/user/refresh' 
+                    : `${API_BASE_URL}/api/v1/user/refresh`;
+
                 const refreshResponse = await axios.post(
-                    `${API_BASE_URL}/api/v1/user/refresh`, 
+                    refreshUrl, 
                     {}, 
                     { withCredentials: true }
                 );
@@ -102,7 +107,6 @@ axiosInstance.interceptors.response.use(
                 isRefreshing = false;
 
                 errorToast('Sessiya müddəti bitib, yenidən daxil olun');
-                localStorage.removeItem(import.meta.env.VITE_APP_TITLE);
                 localStorage.removeItem('accessToken'); 
                 window.location.href = '/';
                 return Promise.reject(refreshError);
@@ -126,3 +130,7 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
+export const environment = {
+    applicationName: import.meta.env.VITE_APP_TITLE as string,
+    apiUrl: import.meta.env.VITE_APP_API_MAIN as string,
+};
