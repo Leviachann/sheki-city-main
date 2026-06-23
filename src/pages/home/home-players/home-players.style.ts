@@ -1,10 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import { rem } from 'assets/styles/abstracts/functions';
 import colors from 'assets/styles/abstracts/color';
-import { sectionHeaderStyles } from '../home.style';
 
 export const useHomePlayersStyles = createUseStyles({
-  ...sectionHeaderStyles,
     noPlayersMessage: {
     gridColumn: '1 / -1',
     textAlign: 'center',
@@ -43,6 +41,15 @@ export const useHomePlayersStyles = createUseStyles({
     display: 'flex',
     flexDirection: 'column',
     gap: rem(4),
+  },
+  title: {
+    fontSize: rem(28),
+    fontWeight: 700,
+    color: colors.white,
+  },
+  subtitle: {
+    fontSize: rem(14),
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   viewAllLink: {
     display: 'flex',

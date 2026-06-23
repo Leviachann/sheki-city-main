@@ -1,13 +1,12 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
 import useLocalization from 'assets/lang';
 import { Routes } from 'router/routes';
 import { useOyuncuDetailStyles } from './oyuncu-detail.style';
 import { S3_BASE_URL } from 'core/configs/axios.config';
 import defaultPlayerPlaceholder from 'assets/images/statics/mock-player-detail.png';
-import { useLocation } from 'react-router-dom';
 import { PlayerDetailProps } from './oyuncu-profili';
-
-const LOCAL_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280"><rect width="100%" height="100%" fill="%23e0e0e0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="%23666666">Sheki City FC</text></svg>`;
 
 const OyuncuDetailComponent = ({ player: propPlayer }: PlayerDetailProps) => {
   const translate = useLocalization();
@@ -44,7 +43,7 @@ const OyuncuDetailComponent = ({ player: propPlayer }: PlayerDetailProps) => {
     name: player?.fullName || 'Nurlan Məmmədov',
     birthDate: player ? formatDate(player.dateOfBirth) : '13/12/1996',
     birthPlace: player?.birthPlace || translate('default_birth_place'),
-    position: player?.photoUrl || translate('default_position'),
+    position: player?.positionName || translate('default_position'), // Fixed field mapping mapping
     jerseyNumber: player?.jerseyNumber !== undefined ? player.jerseyNumber.toString().padStart(2, '0') : '74',
     height: player?.heightCm ? `${player.heightCm} sm` : '180 sm',
     weight: player?.weightKg ? `${player.weightKg} kq` : '68 kq',
@@ -56,15 +55,11 @@ const OyuncuDetailComponent = ({ player: propPlayer }: PlayerDetailProps) => {
     nationality: player?.nationality === 'Foreign' ? translate('xarici') : translate('yerli'),
   };
 
-  const rawImagePath = player?.positionName || '';
-  const cleanImagePath = rawImagePath.trim();
-  const playerImage = cleanImagePath ? `${S3_BASE_URL}${cleanImagePath}` : defaultPlayerPlaceholder;
+  const cleanPhotoPath = player?.photoUrl?.trim() || '';
+  const playerImage = cleanPhotoPath ? `${S3_BASE_URL}${cleanPhotoPath}` : defaultPlayerPlaceholder;
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const currentTarget = e.currentTarget;
-    if (currentTarget.src !== LOCAL_PLACEHOLDER) {
-      currentTarget.src = LOCAL_PLACEHOLDER;
-    }
+    e.currentTarget.src = defaultPlayerPlaceholder;
   };
 
   const breadcrumbs = [

@@ -15,12 +15,13 @@ const HomePlayersComponent = () => {
   const [selectedPosition, setSelectedPosition] = useState<string>('all');
 
   const { data: playersData } = useGetPlayers(1, 100);
-  const playersList = playersData?.items || [];
-
   const { data: positionsData } = useGetPositions(1, 10);
-  const positionsList = positionsData?.items || [];
+
+  const rawPlayers = playersData?.items;
+  const rawPositions = positionsData?.items;
 
   const filterTabs = useMemo(() => {
+    const positionsList = rawPositions || [];
     return [
       { label: (translate('hamisi') as string) || 'Hamısı', value: 'all' },
       ...positionsList.map((pos) => ({
@@ -28,12 +29,13 @@ const HomePlayersComponent = () => {
         value: pos.id.toString(),
       })),
     ];
-  }, [positionsList, translate]);
+  }, [rawPositions, translate]);
 
   const filteredPlayers = useMemo(() => {
+    const playersList = rawPlayers || [];
     if (selectedPosition === 'all') return playersList;
     return playersList.filter((p) => p.positionId.toString() === selectedPosition);
-  }, [playersList, selectedPosition]);
+  }, [rawPlayers, selectedPosition]);
 
   const featuredPlayers = useMemo(() => {
     return filteredPlayers.slice(0, 3);
@@ -75,7 +77,7 @@ const HomePlayersComponent = () => {
           <div className={classes.grid}>
             {featuredPlayers.map((player) => (
               <div key={player.id} className={classes.homepageCardOverride}>
-                <PlayerCard player={player} variant="dark" />
+                <PlayerCard player={player} variant='dark' />
               </div>
             ))}
           </div>

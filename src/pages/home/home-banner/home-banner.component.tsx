@@ -36,7 +36,7 @@ const HomeBanner: React.FC = () => {
                     
                     {displayCtaText && (
                         <button 
-                            type="button" 
+                            type='button' 
                             className={classes.ctaButton} 
                             onClick={handleCtaClick}
                         >

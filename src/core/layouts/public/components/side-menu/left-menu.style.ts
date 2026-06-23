@@ -13,7 +13,7 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.4)',
     zIndex: 1001,
   },
-  sideMenu: {
+sideMenu: {
     position: 'fixed',
     top: rem(0),
     right: rem(0),
@@ -30,6 +30,16 @@ const styles = {
     flexDirection: 'column',
     gap: rem(10),
     boxShadow: '0 10px 40px rgba(0,0,0,0.12)',
+    overflowY: 'auto',
+    maxHeight: '100vh',
+    WebkitOverflowScrolling: 'touch', 
+    '&::-webkit-scrollbar': {
+      width: rem(4),
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(0, 0, 0, 0.15)',
+      borderRadius: rem(4),
+    },
   },
   open: {
     transform: 'translateX(0)',

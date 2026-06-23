@@ -37,7 +37,7 @@ const MatchCard = ({
     return (
       <div className={classes.card} onClick={handleNavigate}>
         <div className={classes.leagueWrapper}>
-          <img src={liqaLogo} alt="League Logo" className={classes.image} />
+          <img src={liqaLogo} alt='League Logo' className={classes.image} />
         </div>
 
         <div className={classes.contentWrapper}>
@@ -74,7 +74,7 @@ const MatchCard = ({
         </div>
 
         <button 
-          type="button" 
+          type='button' 
           className={classes.ctaButton}
           onClick={(e) => {
             e.stopPropagation(); 

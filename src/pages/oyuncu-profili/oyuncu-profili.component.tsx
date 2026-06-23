@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
 import useLocalization from 'assets/lang';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
@@ -13,12 +13,13 @@ const OyuncuProfiliComponent = () => {
   const [selectedPosition, setSelectedPosition] = useState<string>('all');
 
   const { data: playersData } = useGetPlayers(1, 9);
-  const playersList = playersData?.items || [];
-
   const { data: positionsData } = useGetPositions(1, 10);
-  const positionsList = positionsData?.items || [];
+
+  const rawPlayers = playersData?.items;
+  const rawPositions = positionsData?.items;
 
   const positionFilterOptions = useMemo(() => {
+    const positionsList = rawPositions || [];
     return [
       { label: (translate('hamisi') as string) || 'Hamısı', value: 'all' },
       ...positionsList.map((pos) => ({
@@ -26,16 +27,17 @@ const OyuncuProfiliComponent = () => {
         value: pos.id.toString(),
       })),
     ];
-  }, [positionsList, translate]);
+  }, [rawPositions, translate]);
 
   const handlePositionChange = (value: string | number) => {
     setSelectedPosition(value.toString());
   };
 
   const filteredPlayers = useMemo(() => {
+    const playersList = rawPlayers || [];
     if (selectedPosition === 'all') return playersList;
     return playersList.filter((player) => player.positionId.toString() === selectedPosition);
-  }, [playersList, selectedPosition]);
+  }, [rawPlayers, selectedPosition]);
 
   return (
     <div>
@@ -48,7 +50,7 @@ const OyuncuProfiliComponent = () => {
         current={translate('geri') as string}
         filters={[
           {
-            label: translate('movqe_filtri') as string || 'Mövqe',
+            label: (translate('movqe_filtri') as string) || 'Mövqe',
             defaultValue: 'all',
             options: positionFilterOptions,
             onChange: handlePositionChange,
@@ -61,7 +63,7 @@ const OyuncuProfiliComponent = () => {
           <PlayerCard 
             key={player.id} 
             player={player} 
-            variant="light" 
+            variant='light'
           />
         ))}
       </div>

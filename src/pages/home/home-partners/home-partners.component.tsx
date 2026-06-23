@@ -34,8 +34,8 @@ const HomePartnersComponent = () => {
               <a
                 key={partner.id}
                 href={partner.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener noreferrer'
                 className={classes.partnerLink}
                 title={partner.name}
               >

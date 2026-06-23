@@ -5,7 +5,6 @@ import NewsCard from 'core/shared/news-card/news-card.component';
 import { useGetXeberler } from 'pages/xeberler/actions/xeberler.query';
 import { S3_BASE_URL } from 'core/configs/axios.config';
 import newsImg from 'assets/images/statics/news.png';
-import { sectionHeaderStyles } from '../home.style';
 
 const HomeNewsComponent = () => {
   const translate = useLocalization();

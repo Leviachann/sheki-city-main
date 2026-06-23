@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useLocalization from 'assets/lang';
 import { useGetProductDetail } from './actions/mehsul-detail.query';
 import { useMehsulDetailStyles } from './mehsul-detail.style';

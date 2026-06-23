@@ -55,7 +55,7 @@ const HomeMatchesComponent = () => {
               awayScore={item.awayScore}
               awayClubName={item.awayClubName}
               competitionLogoUrl={`${S3_BASE_URL}${item.competitionLogoUrl}`}
-              variant="compact"
+              variant='compact'
             />
           ))}
         </div>
