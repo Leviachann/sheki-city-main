@@ -1,3 +1,4 @@
+import React from 'react';
 import { useMatchCardStyles } from './match-card.style';
 import { MatchCardProps } from './match-card';
 import { ArrowLink } from 'assets/images/icons/arrows';
@@ -15,8 +16,10 @@ const MatchCard = ({
   awayScore,
   awayClubName,
   competitionLogoUrl,
+  variant = 'horizontal',
+  onCtaClick
 }: MatchCardProps) => {
-  const classes = useMatchCardStyles();
+  const classes = useMatchCardStyles({ variant });
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -30,6 +33,59 @@ const MatchCard = ({
       ? kickOffTime.split(':').slice(0, 2).join(':')
       : kickOffTime;
 
+  if (variant === 'compact') {
+    return (
+      <div className={classes.card} onClick={handleNavigate}>
+        <div className={classes.leagueWrapper}>
+          <img src={liqaLogo} alt="League Logo" className={classes.image} />
+        </div>
+
+        <div className={classes.contentWrapper}>
+          <div className={classes.homeTeam}>
+            <div className={classes.teamLogoWrapper}>
+              <img src={homeLogo} alt={homeClubName} className={classes.image} />
+            </div>
+            <h3 className={classes.clubName}>{homeClubName}</h3>
+          </div>
+
+          <div className={classes.scoreColumn}>
+            <div className={classes.scoreBox}>
+              {isUpcoming ? (
+                <span className={classes.scoreText}>{formattedTime}</span>
+              ) : (
+                <>
+                  <span className={classes.scoreText}>{homeScore}</span>
+                  <span className={classes.scoreText}>:</span>
+                  <span className={classes.scoreText}>{awayScore}</span>
+                </>
+              )}
+            </div>
+            <span className={classes.matchDate}>{matchDate}</span>
+            <span className={classes.vsLabel}>vs</span>
+          </div>
+
+          {/* Away Column */}
+          <div className={classes.awayTeam}>
+            <div className={classes.teamLogoWrapper}>
+              <img src={competitionLogoUrl} alt={awayClubName} className={classes.image} />
+            </div>
+            <h3 className={classes.clubName}>{awayClubName}</h3>
+          </div>
+        </div>
+
+        <button 
+          type="button" 
+          className={classes.ctaButton}
+          onClick={(e) => {
+            e.stopPropagation(); 
+            if (onCtaClick) onCtaClick();
+          }}
+        >
+          Bilet alın
+        </button>
+      </div>
+    );
+  }
   return (
     <div className={classes.card}>
       <div className={classes.leagueWrapper}>
@@ -61,11 +117,7 @@ const MatchCard = ({
 
         <div className={classes.awayTeam}>
           <div className={classes.teamLogoWrapper}>
-            <img
-              src={competitionLogoUrl}
-              alt={awayClubName}
-              className={classes.image}
-            />
+            <img src={competitionLogoUrl} alt={awayClubName} className={classes.image} />
           </div>
           <h3 className={classes.clubName}>{awayClubName}</h3>
         </div>

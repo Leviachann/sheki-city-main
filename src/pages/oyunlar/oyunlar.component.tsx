@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Pagination } from 'antd';
 import useLocalization from 'assets/lang';
 import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
@@ -7,15 +7,16 @@ import MatchCard from 'core/shared/match-card/match-card.component';
 import { S3_BASE_URL } from 'core/configs/axios.config';
 import { useGetMatches } from './actions/oyunlar.query';
 import { useOyunlarStyles } from './oyunlar.style';
+import { useMediaQuery } from 'core/helpers/use-media-query';
 import liqaLogoImg from '../../assets/images/statics/liqaLogo.png';
 import homeLogoImg from '../../assets/images/statics/homeLogo.png';
 
 const OyunlarComponent = () => {
   const translate = useLocalization();
   const classes = useOyunlarStyles();
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const { data: matchesList = [] } = useGetMatches(1, 100, 'az');
-
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedTeam, setSelectedTeam] = useState<string>('all');
   
@@ -94,6 +95,7 @@ const OyunlarComponent = () => {
               awayScore={item.awayScore}
               awayClubName={item.awayClubName}
               competitionLogoUrl={`${S3_BASE_URL}${item.competitionLogoUrl}`}
+              variant={isMobile ? 'compact' : 'horizontal'}
             />
           ))}
         </div>

@@ -9,4 +9,6 @@ export interface MatchCardProps {
     awayScore:number;
     homeLogo:string;
     competitionLogoUrl:string;
+    variant?: 'horizontal' | 'compact';
+    onCtaClick?: () => void;
 }
