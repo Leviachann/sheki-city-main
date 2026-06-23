@@ -144,4 +144,6 @@ export const az = {
     //ana-sehife
     ana_title:'Sheki City rəsmi web səhifəsinə xoş gəlmisiniz!',
     ana_desc:'Sheki City klubuna dəstək almaq üçün ianə edin',
+    partnyorlar:'Partnyorlar',
+    partnyorlar_subtitle:'Sheki City futbol klubunun partnyorları',
 };

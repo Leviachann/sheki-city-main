@@ -21,16 +21,17 @@ export const useHomeMatchesStyles = createUseStyles({
     flexDirection: 'column',
     gap: rem(4),
   },
+  
   title: {
     fontSize: rem(28),
     fontWeight: 700,
     color: colors.shekiGreenDark,
-    margin: 0,
+    margin: `${rem(20)} 0`,
   },
   subtitle: {
     fontSize: rem(14),
     color: '#7A7A7A',
-    margin: 0,
+    margin: `${rem(14)} 0`,
   },
   viewAllLink: {
     display: 'flex',

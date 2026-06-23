@@ -18,7 +18,7 @@ export interface IBannerResponse {
 
 export const useGetAboutClubBanner = (id: number, lang = 'az') => {
   return useQuery<IBannerResponse, Error>(
-    ['aboutClubBanner', id, lang], // Include id in the cache key
+    ['aboutClubBanner', id, lang],
     async () => {
       const response = await axiosInstance.get<IBannerResponse>(`/Banners/${id}`, {
         headers: {
