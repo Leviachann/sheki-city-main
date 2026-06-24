@@ -7,6 +7,7 @@ import useLocalization from 'assets/lang';
 import { ExitIcon } from 'assets/images/icons/exit';
 import { errorToast } from 'core/shared/toast/toast';
 import { useLoginModalStyles } from './login-modal.style';
+import axios from 'axios'; 
 
 export const LoginModal = () => {
   const classes = useLoginModalStyles();
@@ -36,8 +37,13 @@ export const LoginModal = () => {
       localStorage.setItem('accessToken', accessToken);
       
       handleClose();
-    } catch (err: any) {
-      errorToast(err.response?.data?.message || 'E-poçt və ya şifrə yanlışdır');
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        const serverMessage = err.response?.data?.message;
+        errorToast(serverMessage);
+      } else {
+        errorToast(translate('xeta') as string);
+      }
     }
   };
 
@@ -54,25 +60,25 @@ export const LoginModal = () => {
         <form onSubmit={handleSubmit} className={classes.modalForm}>
           <div className={classes.inputGroup}>
             <input
-              type="email"
+              type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="E-poçt"
+              placeholder='E-poçt'
               required
             />
           </div>
 
           <div className={classes.inputGroup}>
             <input
-              type="password"
+              type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Şifrə"
+              placeholder='Şifrə'
               required
             />
           </div>
 
-          <button type="submit" className={classes.loginSubmitBtn}>
+          <button type='submit' className={classes.loginSubmitBtn}>
             {translate('daxil_ol')}
           </button>
         </form>

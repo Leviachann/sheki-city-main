@@ -1,3 +1,4 @@
+import { useState } from 'react'; // Added useState hook
 import { useParams, useLocation } from 'react-router-dom';
 import useLocalization from 'assets/lang';
 import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
@@ -6,11 +7,14 @@ import { Routes } from 'router/routes';
 import { useGetVacancyBySlugQuery } from './actions/vakansiyalar.query';
 import { useVakansiyaDetailStyles } from './vakansiya-detail.style';
 import { Vacancy } from 'core/shared/vanacies-card/vacancies';
+import { VacancyApplyModal } from 'core/shared/modal/VacancyApplyModal.component';
 
 const VakansiyaDetailComponent = () => {
   const { slug } = useParams<{ slug: string }>();
   const translate = useLocalization();
   const classes = useVakansiyaDetailStyles();
+
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const location = useLocation();
   const stateVacancy = location.state?.vacancy as Vacancy | undefined;
@@ -50,7 +54,7 @@ const VakansiyaDetailComponent = () => {
     return (
       <div className={classes.pageContainer}>
         <div className={classes.contentWrapper}>
-          <p>{translate('input_required') || 'Məlumat tapılmadı.'}</p>
+          <p>{translate('input_required')}</p>
         </div>
       </div>
     );
@@ -69,7 +73,7 @@ const VakansiyaDetailComponent = () => {
     <div className={classes.pageContainer}>
       <PageHeroComponent
         title={vacancy.title}
-        subtitle={`${translate('muraciet_son_tarix') || 'Müraciət üçün son tarix'} : ${formatDate(vacancy.applicationEnd)}`}
+        subtitle={`${translate('muraciet_son_tarix')} : ${formatDate(vacancy.applicationEnd)}`}
       />
 
       <div className={classes.contentWrapper}>
@@ -77,7 +81,7 @@ const VakansiyaDetailComponent = () => {
 
         <main>
           <h2 className={classes.titleHeader}>
-            {translate('vakansiya_detallari') || 'Vakansiyanın detalları'}
+            {translate('vakansiya_detallari')}
           </h2>
 
           <section className={classes.descriptionSection}>
@@ -99,21 +103,29 @@ const VakansiyaDetailComponent = () => {
           <footer className={classes.footerRow}>
             <div className={classes.datesContainer}>
               <p className={classes.dateText}>
-                {translate('baslama_tarixi') || 'Başlama tarixi'} :{' '}
+                {translate('baslama_tarixi') }
                 <span>{formatDate(vacancy.applicationStart)}</span>
               </p>
               <p className={classes.dateText}>
-                {translate('bitme_tarixi') || 'Bitmə tarixi'} :{' '}
+                {translate('bitme_tarixi')} 
                 <span>{formatDate(vacancy.applicationEnd)}</span>
               </p>
             </div>
-
-            <button type='button' className={classes.actionButton}>
-              {translate('muraciet_et') || 'Müraciət et'}
+            <button 
+              type='button' 
+              className={classes.actionButton}
+              onClick={() => setIsModalOpen(true)}
+            >
+              {translate('muraciet_et')}
             </button>
           </footer>
         </main>
       </div>
+      <VacancyApplyModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        vacancyId={vacancy.id} 
+      />
     </div>
   );
 };

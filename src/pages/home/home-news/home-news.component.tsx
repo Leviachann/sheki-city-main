@@ -17,10 +17,12 @@ const HomeNewsComponent = () => {
   return (
     <SliderContainer title={(translate('xeberler') as string)}>
       {newsList.map((item) => {
-        const baseUrl = S3_BASE_URL.endsWith('/') ? S3_BASE_URL.slice(0, -1) : S3_BASE_URL;
-        const imagePath = item.coverImageUrl?.startsWith('/') ? item.coverImageUrl : `/${item.coverImageUrl}`;
+        const safeS3Base = S3_BASE_URL || '';
+        const baseUrl = safeS3Base.endsWith('/') ? safeS3Base.slice(0, -1) : safeS3Base;
         
-        const dynamicSliderImage = item.coverImageUrl 
+        const safeCoverUrl = item.coverImageUrl || '';
+        const imagePath = safeCoverUrl.startsWith('/') ? safeCoverUrl : `/${safeCoverUrl}`;
+        const dynamicSliderImage = (S3_BASE_URL && item.coverImageUrl)
           ? `${baseUrl}${imagePath}` 
           : newsImg;
 

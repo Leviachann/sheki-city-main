@@ -26,8 +26,11 @@ const HomePartnersComponent = () => {
 
         <div className={classes.row}>
           {partners.map((partner) => {
-            const baseUrl = S3_BASE_URL.endsWith('/') ? S3_BASE_URL.slice(0, -1) : S3_BASE_URL;
-            const logoPath = partner.logoUrl.startsWith('/') ? partner.logoUrl : `/${partner.logoUrl}`;
+            const safeS3Base = S3_BASE_URL || '';
+            const baseUrl = safeS3Base.endsWith('/') ? safeS3Base.slice(0, -1) : safeS3Base;
+            const safeLogoUrl = partner.logoUrl || '';
+            const logoPath = safeLogoUrl.startsWith('/') ? safeLogoUrl : `/${safeLogoUrl}`;
+            
             const fullImageUrl = `${baseUrl}${logoPath}`;
 
             return (

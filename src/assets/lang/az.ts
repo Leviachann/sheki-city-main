@@ -4,6 +4,7 @@ export const az = {
     organisation: 'Azintelecom MMC',
      
     // errors
+    xeta:'Gözlənilməyən xəta baş verdi',
     input_required: 'Bu xana mütləqdir',
     input_min_length: 'Ən azı {min} simvol olmalıdır',
     email_invalid: 'Email düzgün deyil',
@@ -147,4 +148,16 @@ export const az = {
     ana_desc:'Sheki City klubuna dəstək almaq üçün ianə edin',
     partnyorlar:'Partnyorlar',
     partnyorlar_subtitle:'Sheki City futbol klubunun partnyorları',
+
+
+    // vakansiya modal 
+    vakansiya_uzre_muraciet: 'Vakansiya üzrə müraciət',
+    cv_yukleyin: 'CV yükləyin',
+    gonder: 'Göndər',
+    ad_soyad_placeholder: 'Ad, Soyad',
+    email_placeholder: 'E-poçt',
+    mobil_nomre_placeholder: 'Mobil nömrə',
+    haqqinizda_placeholder: 'Özünüz haqqında məlumat',
+    cv_yukleyin_error: 'Zəhmət olmasa CV-nizi yükləyin',
+    muraciet_ugurlu: 'Müraciətiniz uğurla göndərildi',
 };
