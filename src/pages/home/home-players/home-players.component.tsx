@@ -23,7 +23,7 @@ const HomePlayersComponent = () => {
   const filterTabs = useMemo(() => {
     const positionsList = rawPositions || [];
     return [
-      { label: (translate('hamisi') as string) || 'Hamısı', value: 'all' },
+      { label: (translate('hamisi') as string), value: 'all' },
       ...positionsList.map((pos) => ({
         label: pos.name,
         value: pos.id.toString(),
@@ -42,8 +42,10 @@ const HomePlayersComponent = () => {
   }, [filteredPlayers]);
 
   const handleViewAllClick = () => {
-    navigate(Routes.oyuncuProfili || '/oyuncu-profili');
+    navigate(Routes.oyuncuProfili);
   };
+
+  if (!playersData) return null;
 
   return (
     <section className={classes.section}>

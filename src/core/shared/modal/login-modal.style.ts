@@ -71,7 +71,7 @@ const styles = {
       transition: transition(),
       backgroundColor: 'transparent',
       '&::placeholder': {
-        color: '#A0A0A0',
+        color: colors.greyPlaceholder,
       },
       '&:focus': {
         borderColor: colors.shekiGreenDark,

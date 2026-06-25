@@ -6,7 +6,7 @@ import fonts from 'assets/styles/abstracts/fonts';
 const styles = {
     wrapper: {
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
     },
     detailContent: {
         display: 'flex',
@@ -64,13 +64,13 @@ const styles = {
     },
     title: {
         fontSize: rem(40),
-    fontFamily: 'Ecluid Circular Bold, sans-serif',
+        fontFamily: 'Ecluid Circular Bold, sans-serif',
         color: colors.shekiGreen,
         lineHeight: 1.2,
         textTransform: 'uppercase',
     },
     price: {
-    fontFamily: 'Ecluid Circular Bold, sans-serif',
+        fontFamily: 'Ecluid Circular Bold, sans-serif',
         fontSize: rem(36),
         color: colors.shekiGreyText,
     },
@@ -91,7 +91,7 @@ const styles = {
         appearance: 'none',
         border: 'none',
         backgroundColor: colors.shekiGreen,
-        color: colors.white || '#fff',
+        color: colors.white,
         borderRadius: rem(50),
         padding: `${rem(14)} ${rem(40)}`,
         cursor: 'pointer',
@@ -107,13 +107,13 @@ const styles = {
         textAlign: 'center',
         padding: rem(80),
         fontSize: rem(16),
-        color: '#666',
+        color: colors.greyDark,
     },
     errorMessage: {
         textAlign: 'center',
         padding: rem(80),
         fontSize: rem(16),
-        color: '#ff4d4f',
+        color: colors.alertTextDanger,
     },
 };
 

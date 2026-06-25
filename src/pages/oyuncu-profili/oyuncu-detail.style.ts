@@ -14,8 +14,8 @@ export const useOyuncuDetailStyles = createUseStyles(() => ({
     flexDirection: 'row',
     alignItems: 'center',
     gap: rem(48),
-    backgroundColor: '#f4f8f7',
-    border: `${rem(1)} solid #d1e2df`, 
+    backgroundColor: colors.shekiGreenLight,
+    border: `${rem(1)} solid ${colors.shekiBorder }`, 
     borderRadius: rem(32),
     padding: `${rem(40)} ${rem(56)}`,
     marginTop: rem(32),
@@ -75,7 +75,7 @@ export const useOyuncuDetailStyles = createUseStyles(() => ({
   },
   label: {
     fontSize: rem(14),
-    color: '#6e807c',
+    color: colors.shekiGreyText || '#6e807c',
     fontWeight: 500,
   },
   value: {

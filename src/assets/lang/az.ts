@@ -17,7 +17,8 @@ export const az = {
     login_subtitle: 'Davam etmək üçün hesabınıza daxil olun.',
     daxil_ol: 'Daxil ol',
     qeydiyyat: 'Qeydiyyat',
-
+    sifre_placeholder: 'Şifrə',
+    
     // navbar + footer
     klub_haqqinda: 'Klub haqqında',
     vakansiyalar: 'Vakansiyalar',
@@ -160,4 +161,6 @@ export const az = {
     haqqinizda_placeholder: 'Özünüz haqqında məlumat',
     cv_yukleyin_error: 'Zəhmət olmasa CV-nizi yükləyin',
     muraciet_ugurlu: 'Müraciətiniz uğurla göndərildi',
+
+    
 };

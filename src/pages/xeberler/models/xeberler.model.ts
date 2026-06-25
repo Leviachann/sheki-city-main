@@ -4,12 +4,12 @@ export interface IXeber {
     slug: string;
     excerpt: string;
     body?: string;
-    cover_image_url: string;
-    published_at: string;
-    view_count: number;
-    category_name: string;
-    category_slug: string;
-    author_name?: string;
+    coverImageUrl: string;
+    publishedAt: string;
+    viewCount: number;
+    categoryName: string;
+    categorySlug: string;
+    authorName?: string;
 }
 
 export class XeberModel implements IXeber {
@@ -18,24 +18,24 @@ export class XeberModel implements IXeber {
     slug: string;
     excerpt: string;
     body?: string;
-    cover_image_url: string;
-    published_at: string;
-    view_count: number;
-    category_name: string;
-    category_slug: string;
-    author_name?: string;
+    coverImageUrl: string;
+    publishedAt: string;
+    viewCount: number;
+    categoryName: string;
+    categorySlug: string;
+    authorName?: string;
 
-    constructor(data: IXeber) {
+    constructor(data: any) {
         this.id = data.id;
         this.title = data.title;
         this.slug = data.slug;
         this.excerpt = data.excerpt;
         this.body = data.body;
-        this.cover_image_url = data.cover_image_url;
-        this.published_at = data.published_at;
-        this.view_count = data.view_count;
-        this.category_name = data.category_name;
-        this.category_slug = data.category_slug;
-        this.author_name = data.author_name;
+        this.coverImageUrl = data.cover_image_url ?? data.coverImageUrl;
+        this.publishedAt = data.published_at ?? data.publishedAt;
+        this.viewCount = data.view_count ?? data.viewCount;
+        this.categoryName = data.category_name ?? data.categoryName;
+        this.categorySlug = data.category_slug ?? data.categorySlug;
+        this.authorName = data.author_name ?? data.authorName;
     }
 }

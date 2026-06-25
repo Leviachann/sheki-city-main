@@ -31,19 +31,24 @@ const processQueue = (error: AxiosError | null, token: string | null = null) => 
     failedQueue = [];
 };
 
-axiosInstance.interceptors.request.use((config) => {
-    store.dispatch(setLoader(true));
-    const token = store.getState().user?.accessToken || localStorage.getItem('accessToken');
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+axiosInstance.interceptors.request.use(
+    (config) => {
+        store.dispatch(setLoader(true));
+        const token = store.getState().user?.accessToken || localStorage.getItem('accessToken');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+
+        const currentLang = store.getState().locale?._lang ?? 'az'; 
+        config.headers['Accept-Language'] = currentLang;
+
+        return config;
+    },
+    (error) => {
+        store.dispatch(setLoader(false));
+        return Promise.reject(error);
     }
-
-    const { locale } = store.getState();
-    const currentLang = Object.keys(locale || {}).length ? 'az' : 'az'; 
-    config.headers['Accept-Language'] = currentLang;
-
-    return config;
-});
+);
 
 axiosInstance.interceptors.response.use(
     (response) => {

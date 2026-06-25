@@ -64,7 +64,7 @@ const styles = {
     transition: transition(),
     backgroundColor: 'transparent',
     '&::placeholder': {
-      color: '#A0A0A0',
+      color: colors.greyPlaceholder,
     },
     '&:focus': {
       borderColor: colors.shekiGreenDark,
@@ -89,7 +89,7 @@ const styles = {
     transition: transition(),
     backgroundColor: 'transparent',
     '&::placeholder': {
-      color: '#A0A0A0',
+      color: colors.greyPlaceholder,
     },
     '&:focus': {
       borderColor: colors.shekiGreenDark,
@@ -134,7 +134,7 @@ const styles = {
       opacity: 0.9,
     },
     '&:disabled': {
-      backgroundColor: '#cccccc',
+      backgroundColor: colors.greyLabel,
       cursor: 'not-allowed',
     },
   },

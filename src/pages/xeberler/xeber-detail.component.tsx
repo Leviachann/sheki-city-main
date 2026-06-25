@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import { useXeber, useGetXeberler } from './actions/xeberler.query';
 import PageHeaderComponent from 'core/shared/section-header/section-header.component';
 import NewsCard from 'core/shared/news-card/news-card.component';
@@ -47,7 +48,7 @@ const XeberDetailComponent = () => {
       <img src={mainCoverImage} alt={article.title} className={classes.coverImage} />
       <div 
         className={classes.body} 
-        dangerouslySetInnerHTML={{ __html: article.body || '' }} 
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.body || '') }} 
       />
 
       <SliderContainer title={translate('klub_planlar') as string}>

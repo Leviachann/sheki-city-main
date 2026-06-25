@@ -1,4 +1,5 @@
 import { createUseStyles } from 'react-jss';
+import { rem } from 'assets/styles/abstracts/functions';
 
 const smoothSlantPath = 'polygon(22% 0%, 100% 0%, 100% 100%, 6% 100%, 4.2% 99.4%, 2.8% 98.2%, 1.7% 96.5%, 0.9% 94.2%, 0.4% 91.3%, 0.1% 87.8%, 0% 83%, 11.5% 14%, 11.9% 11.5%, 12.5% 9.2%, 13.3% 7.1%, 14.3% 5.3%, 15.5% 3.7%, 16.9% 2.3%, 18.5% 1.2%, 20.2% 0.4%)';
 
@@ -10,6 +11,7 @@ export const useHomeBannerStyles = createUseStyles({
     borderRadius: '24px',
     overflow: 'hidden',
     padding: '40px 0px 40px 60px', 
+    paddingTop: rem(80),
     display: 'flex',
     alignItems: 'center',
     minHeight: '440px',

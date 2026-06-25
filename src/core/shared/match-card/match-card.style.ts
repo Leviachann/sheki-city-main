@@ -93,7 +93,7 @@ const styles = {
   matchDate: {
     fontSize: ({ variant }: StyleProps) => variant === 'compact' ? rem(12) : rem(13),
     fontWeight: ({ variant }: StyleProps) => variant === 'compact' ? 400 : 'normal',
-    color: ({ variant }: StyleProps) => variant === 'compact' ? '#7A7A7A' : colors.shekiGreenDark,
+    color: ({ variant }: StyleProps) => variant === 'compact' ? colors.txtGrayDark : colors.shekiGreenDark,
     order: ({ variant }: StyleProps) => variant === 'compact' ? 2 : 1, 
     marginBottom: rem(4),
   },

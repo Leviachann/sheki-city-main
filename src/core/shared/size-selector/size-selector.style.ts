@@ -28,7 +28,7 @@ const styles = {
   },
   sizeButton: {
     appearance: 'none',
-    border: '1px solid #ddd',
+    border: `1px solid ${colors.border}`,
     background: colors.white,
     borderRadius: rem(8),
     padding: `${rem(8)} ${rem(16)}`,
@@ -49,15 +49,15 @@ const styles = {
     '&.active': {
       backgroundColor: colors.shekiGreen,
       borderColor: colors.shekiGreen,
-      color: '#fff',
+      color: colors.white,
     },
     '&.disabled': {
       opacity: 0.4,
       cursor: 'not-allowed',
       backgroundColor: colors.white,
       textDecoration: 'line-through',
-      borderColor: '#ddd',
-      color: '#aaa',
+      borderColor: colors.border,
+      color: colors.txtGray,
     },
   },
   skeletonText: {

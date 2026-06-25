@@ -1,19 +1,20 @@
 import { createUseStyles } from 'react-jss';
+import colors from 'assets/styles/abstracts/color';
 
 export const useVacancyCardStyles = createUseStyles({
   card: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#ffffff',
-    border: '1px solid #e0e6e4',
+    backgroundColor: colors.white,
+    border: `1px solid ${colors.shekiBorder}`,
     borderRadius: '40px', 
     padding: '24px 40px',
     marginBottom: '20px',
     cursor: 'pointer',
     transition: 'all 0.2s ease-in-out',
     '&:hover': {
-      borderColor: '#115544',
+      borderColor: colors.shekiGreenBright,
       transform: 'translateY(-2px)',
       boxShadow: '0 4px 12px rgba(17, 85, 68, 0.05)',
     },
@@ -41,7 +42,7 @@ export const useVacancyCardStyles = createUseStyles({
   calendarIcon: {
     width: '18px',
     height: '18px',
-    color: '#115544',
+    color: colors.shekiGreenBright,
   },
   arrowContainer: {
     display: 'flex',
@@ -51,7 +52,7 @@ export const useVacancyCardStyles = createUseStyles({
     height: '44px',
     borderRadius: '50%',
     backgroundColor: '#f0f4f3',
-    color: '#115544',
+    color: colors.shekiGreenBright,
     transition: 'background-color 0.2s, color 0.2s',
   },
   arrowIcon: {

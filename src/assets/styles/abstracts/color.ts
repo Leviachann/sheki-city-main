@@ -24,6 +24,18 @@ const colors = {
   shekiGreyText: '#182B29',
   shekiBorderOuterShadow: '#464c541a',
   shekiPageBg: '#FAFAFA',
+  
+  // Added Tokens
+  greyBorder: '#E4E7EC',
+  greyDark: '#475467',
+  greyLight: '#ddd',
+  greyMedium: '#aaa',
+  greyPlaceholder: '#A0A0A0',
+  greyLabel: '#cccccc',
+  txtGrayDark: '#7A7A7A',
+  shekiBorder: '#e0e6e4',
+  shekiGreenBright: '#115544',
+
   //tab
   tab: '#805DCA',
   tabBorderBottom: 'lightgrey',
@@ -40,6 +52,7 @@ const colors = {
   mainButtonTextColor: '#3b3f5c',
   secondaryButtonColor: '#805dca',
   BackgroundColor: '#c6c6c6',
+  
   //inputs
   inputBorderColor: '#bfc9d4',
   inputBorderFocusColor: '#4361ee',
@@ -68,6 +81,7 @@ const colors = {
   shadowColor: '#e0e6ed',
   btnBorderColor: '#d3d3d3',
   bgColor: '#f9f9f9',
+  
   //alert
   alertPrimary: '#eaf1ff',
   alertTextPrimary: '#4361ee',

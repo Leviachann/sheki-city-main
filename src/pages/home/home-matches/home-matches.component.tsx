@@ -20,7 +20,7 @@ const HomeMatchesComponent = () => {
   const featuredMatches = matchesList.slice(0, 3);
 
   const handleViewAllClick = () => {
-    navigate(Routes.oyunlar || '/oyunlar');
+    navigate(Routes.oyunlar);
   };
 
   if (isLoading || featuredMatches.length === 0) return null;

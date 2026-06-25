@@ -1,6 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStore, IUser } from './store.d';
 import { az } from 'assets/lang/az';
+import { en } from 'assets/lang/en';
+import { ru } from 'assets/lang/ru';
+
+const langMap: Record<'az' | 'en' | 'ru', Record<string, string>> = {
+    az,
+    en,
+    ru,
+};
 
 const initialState: IStore = {
     loader: false,
@@ -11,7 +19,7 @@ const initialState: IStore = {
         { id: 2, label: 'EN', value: 'en' },
         { id: 3, label: 'RU', value: 'ru' },
     ],
-    locale: az,
+    locale: { ...az, _lang: 'az' },
     user: null,
 };
 
@@ -25,8 +33,8 @@ const rootSlice = createSlice({
         toggleSideMenu: (state) => {
             state.sideMenu = !state.sideMenu;
         },
-        setLocale: (state, action: PayloadAction<Record<string, string>>) => {
-            state.locale = action.payload;
+        setLocale: (state, action: PayloadAction<'az' | 'en' | 'ru'>) => {
+            state.locale = { ...langMap[action.payload], _lang: action.payload };
         },
         setUser: (state, action: PayloadAction<IUser | null>) => {
             state.user = action.payload;

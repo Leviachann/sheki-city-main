@@ -16,7 +16,7 @@ const HomeProductsComponent = () => {
   const productsList = data?.items || [];
 
   const handleViewAllClick = () => {
-    navigate(Routes.mehsullar || '/mehsullar');
+    navigate(Routes.mehsullar);
   };
 
   if (isLoading || productsList.length === 0) return null;

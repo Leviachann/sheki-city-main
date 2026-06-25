@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import DOMPurify from 'dompurify';
 import { az } from './az';
 import { en } from './en';
 import { ru } from './ru';
@@ -11,7 +12,6 @@ type DynamicValueMap = Record<string, string | ReactNode>;
 
 const useLocalization = () => {
     const languages = useStore('locale');
-
     return (
         key: TranslationKeys,
         dynamicValues: DynamicValueMap = {}
@@ -23,19 +23,25 @@ const useLocalization = () => {
             const dynamicValue = dynamicValues[dynamicKey];
             
             if (typeof dynamicValue === 'string') {
-                formattedText = (formattedText as string).replace(
-                    `{${dynamicKey}}`,
-                    dynamicValue
-                );
+                if (typeof formattedText === 'string') {
+                    formattedText = formattedText.replace(
+                        `{${dynamicKey}}`,
+                        dynamicValue
+                    );
+                }
             } else if (React.isValidElement(dynamicValue)) {
                 const jsxString = renderToStaticMarkup(dynamicValue);
+                const currentText = typeof formattedText === 'string' 
+                    ? formattedText 
+                    : '';
+
+                const rawHtml = currentText.replace(`{${dynamicKey}}`, jsxString);
+                const sanitizedHtml = DOMPurify.sanitize(rawHtml);
+
                 formattedText = (
                     <div
                         dangerouslySetInnerHTML={{
-                            __html: (formattedText as string).replace(
-                                `{${dynamicKey}}`,
-                                jsxString
-                            ),
+                            __html: sanitizedHtml,
                         }}
                     />
                 );

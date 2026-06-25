@@ -40,7 +40,7 @@ export const LoginModal = () => {
     } catch (err) {
       if (axios.isAxiosError(err)) {
         const serverMessage = err.response?.data?.message;
-        errorToast(serverMessage);
+        errorToast(serverMessage || (translate('xeta') as string));
       } else {
         errorToast(translate('xeta') as string);
       }
@@ -63,7 +63,7 @@ export const LoginModal = () => {
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder='E-poçt'
+              placeholder={translate('email_placeholder') as string}
               required
             />
           </div>
@@ -73,7 +73,7 @@ export const LoginModal = () => {
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder='Şifrə'
+              placeholder={translate('sifre_placeholder') as string}
               required
             />
           </div>

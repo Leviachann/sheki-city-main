@@ -3,13 +3,15 @@ import { useGetAboutClubBanner } from 'pages/klub-haqqinda/actions/klub-banner.q
 import { useHomeBannerStyles } from './home-banner.style';
 import { PageHeroWave } from 'assets/images/icons/pagehero-wave';
 import { S3_BASE_URL } from 'core/configs/axios.config';
+import { useStore } from 'store/store.config';
 
 const HomeBanner: React.FC = () => {
     const classes = useHomeBannerStyles();
+    const lang = useStore('locale')?._lang ?? 'az';
     
-    const { data: banner, isLoading, error } = useGetAboutClubBanner(15, 'az');
+    const { data: banner, isLoading, error } = useGetAboutClubBanner(15, lang);
 
-    const displayTitle = banner?.translation?.title ;
+    const displayTitle = banner?.translation?.title;
     const displaySubtitle = banner?.translation?.subtitle;
     const displayCtaText = banner?.translation?.ctaText;
 
@@ -17,7 +19,7 @@ const HomeBanner: React.FC = () => {
         if (banner?.ctaUrl) {
             window.open('/iane');
         } else {
-            window.open('klub-haqqinda', '_self');
+            window.open('/klub-haqqinda', '_self');
         }
     };
 

@@ -4,9 +4,12 @@ export const en = {
     organisation: 'Azintelecom MMC',
 
     // errors
+    xeta: 'An unexpected error occurred',
     input_required: 'This field is required',
     input_min_length: 'Must be at least {min} characters',
     email_invalid: 'Email is invalid',
+    oyuncu_yoxdur: 'There are no players in this category.',
+    sifreni_unutmusan: 'Forgot password?',
 
     // auth
     login_sign_in_button: 'Sign in',
@@ -14,6 +17,7 @@ export const en = {
     login_subtitle: 'Log in to your account to continue.',
     daxil_ol: 'Login',
     qeydiyyat: 'Registration',
+    sifre_placeholder: 'Password',
 
     // navbar + footer
     klub_haqqinda: 'About the club',
@@ -63,6 +67,7 @@ export const en = {
     azarkes_klubu_desc: 'Meetups, local fan groups',
 
     // mehsullar
+    mehsul: 'Product',
     mehsullar: 'Products',
     mehsullar_subtitle: 'Sale of all merchandise of Sheki City club',
     butun_mehsullar: 'All products',
@@ -74,6 +79,7 @@ export const en = {
     valyuta: 'Currency',
     beli: 'Yes',
     xeyr: 'No',
+    no_products: 'Product not found',
 
     // live-games
     canli_yayin: 'Live Stream',
@@ -137,4 +143,21 @@ export const en = {
     bitme_tarixi: 'End date',
     muraciet_et: 'Apply',
     muraciet_son_tarix: 'Application deadline',
+
+    // ana-sehife
+    ana_title: 'Welcome to the official website of Sheki City!',
+    ana_desc: 'Make a donation to support Sheki City club',
+    partnyorlar: 'Partners',
+    partnyorlar_subtitle: 'Partners of Sheki City football club',
+
+    // vakansiya modal
+    vakansiya_uzre_muraciet: 'Apply for vacancy',
+    cv_yukleyin: 'Upload CV',
+    gonder: 'Send',
+    ad_soyad_placeholder: 'Full Name',
+    email_placeholder: 'Email',
+    mobil_nomre_placeholder: 'Mobile number',
+    haqqinizda_placeholder: 'About yourself',
+    cv_yukleyin_error: 'Please upload your CV',
+    muraciet_ugurlu: 'Your application has been sent successfully',
 };

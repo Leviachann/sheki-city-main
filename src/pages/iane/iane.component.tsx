@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import PageHeroComponent from 'core/shared/page-hero/page-hero.component';
 import { useIaneStyles } from './iane.style';
 import fifLogo from 'assets/images/icons/fif-logo.png';
@@ -28,7 +29,7 @@ const IaneComponent = () => {
 
           <p
             className={classes.description}
-            dangerouslySetInnerHTML={{ __html: translate('iane_description') }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(translate('iane_description') as string) }}
           />
 
           <a

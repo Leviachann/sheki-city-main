@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
 
 export interface IAuthProtectedRouteProps {
-    dep?: any;
+    dep?: unknown;
     children: ReactElement;
 }
